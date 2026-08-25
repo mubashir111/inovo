@@ -1,0 +1,1970 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>INOVO — Architecture & Spatial Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --b: #080807;
+            --w: #eeeae2;
+            --s: #c3bcb1;
+            --m: #827a70;
+            --g: #c5a059;
+            --g-glow: rgba(197, 160, 89, 0.35);
+            --l: #2b2925;
+            --card-bg: #121210;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--b);
+            color: var(--w);
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            cursor: pointer
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cinzel', Georgia, serif;
+            font-weight: 500;
+            letter-spacing: -.025em
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--b);
+            color: var(--w);
+            font-family: Arial, sans-serif
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            font: inherit;
+            color: inherit
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -.055em
+        }
+
+        .ey {
+            font-size: 9px;
+            letter-spacing: .27em;
+            text-transform: uppercase;
+            color: var(--g)
+        }
+
+        .nav {
+            position: fixed;
+            z-index: 50;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(#050504c8, transparent);
+            transition: .4s
+        }
+
+        .nav.on {
+            background: #080807e9;
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid #ffffff0c
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            letter-spacing: .42em;
+            font-weight: 500
+        }
+
+        .brand-logo {
+            height: 34px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            filter: brightness(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+            transition: transform .3s ease
+        }
+
+        .brand:hover .brand-logo {
+            transform: scale(1.06)
+        }
+
+        .loader-logo {
+            height: 48px;
+            width: auto;
+            margin-right: 14px;
+            opacity: 0
+        }
+
+        .links {
+            display: flex;
+            gap: 25px;
+            font-size: 9px;
+            letter-spacing: .14em;
+            text-transform: uppercase
+        }
+
+        .cta {
+            border: 1px solid #ffffff42;
+            border-radius: 30px;
+            padding: 10px 15px;
+            font-size: 9px;
+            letter-spacing: .14em;
+            background: #11110e99
+        }
+
+        .menu {
+            display: none
+        }
+
+        /* Dynamic Multi-Work Hero Showcase (Stapati Inspired) */
+        .hero {
+            height: 100svh;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            background: #050504
+        }
+
+        .hero-slides {
+            position: absolute;
+            inset: 0;
+            z-index: 1
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2
+        }
+
+        .hero-slide-bg {
+            position: absolute;
+            inset: -4%;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.08);
+            transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1)
+        }
+
+        .hero-slide.active .hero-slide-bg {
+            transform: scale(1)
+        }
+
+        .hero-slide:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(8, 8, 7, 0.55) 0%, rgba(8, 8, 7, 0.25) 50%, transparent 100%), linear-gradient(180deg, rgba(8, 8, 7, 0.35) 0%, transparent 35%, rgba(8, 8, 7, 0.5) 100%);
+            pointer-events: none
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 7vw 18vh;
+            max-width: 920px;
+            margin-top: auto
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 10px;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--g);
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8)
+        }
+
+        .hero-tag::before {
+            content: "";
+            width: 26px;
+            height: 1px;
+            background: var(--g)
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 6.5vw, 95px);
+            line-height: .92;
+            margin: 10px 0 16px;
+            font-weight: 500;
+            text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7)
+        }
+
+        .hero-subtitle {
+            font-size: clamp(20px, 3vw, 36px);
+            color: var(--w);
+            font-family: 'Cinzel', serif;
+            font-weight: 400;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            opacity: .95;
+            text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7)
+        }
+
+        .hero-desc {
+            max-width: 480px;
+            color: var(--w);
+            line-height: 1.75;
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+            opacity: 0.95
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid var(--g);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            transition: all .4s ease;
+            cursor: pointer
+        }
+
+        .hero-cta:hover {
+            background: var(--g);
+            color: #080807;
+            box-shadow: 0 0 25px var(--g-glow);
+            transform: translateY(-2px)
+        }
+
+        /* Stapati-style Counter & Nav */
+        .hero-controls {
+            position: absolute;
+            z-index: 15;
+            right: 7vw;
+            bottom: 16vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 24px
+        }
+
+        .hero-counter {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            font-family: 'Cinzel', serif;
+            color: var(--w)
+        }
+
+        .hero-counter .curr {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--g)
+        }
+
+        .hero-counter .sep {
+            font-size: 18px;
+            color: var(--m);
+            margin: 0 4px
+        }
+
+        .hero-counter .total {
+            font-size: 16px;
+            color: var(--m)
+        }
+
+        .hero-arrows {
+            display: flex;
+            gap: 12px
+        }
+
+        .hero-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(16, 16, 14, 0.6);
+            backdrop-filter: blur(12px);
+            color: var(--w);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .3s ease;
+            font-size: 16px
+        }
+
+        .hero-arrow:hover {
+            border-color: var(--g);
+            background: var(--g);
+            color: var(--b);
+            transform: scale(1.08)
+        }
+
+        /* Thumbnails Quick Jump Bar */
+        .hero-thumbs-bar {
+            position: absolute;
+            z-index: 15;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, transparent, rgba(5, 5, 4, 0.95));
+            padding: 16px 7vw;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.08)
+        }
+
+        .hero-thumbs-bar::-webkit-scrollbar {
+            display: none
+        }
+
+        .hero-thumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--s);
+            font-size: 10px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all .3s ease;
+            backdrop-filter: blur(8px)
+        }
+
+        .hero-thumb.active,
+        .hero-thumb:hover {
+            background: rgba(197, 160, 89, 0.2);
+            border-color: var(--g);
+            color: #fff
+        }
+
+        .hero-thumb-num {
+            color: var(--g);
+            font-family: 'Cinzel', serif;
+            font-weight: 600
+        }
+
+        /* Auto-Play Timer Progress Bar */
+        .hero-progress-track {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 20
+        }
+
+        .hero-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--g);
+            box-shadow: 0 0 10px var(--g);
+            transition: width .1s linear
+        }
+
+        /* Portfolio Category Filters */
+        .portfolio-filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 35px
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+            padding: 10px 22px;
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--s);
+            cursor: pointer;
+            transition: all .3s ease
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--g);
+            border-color: var(--g);
+            color: var(--b);
+            box-shadow: 0 0 15px var(--g-glow)
+        }
+
+        /* Floating Quick Consultation Button */
+        .float-inquire {
+            position: fixed;
+            z-index: 45;
+            right: 30px;
+            bottom: 30px;
+            background: rgba(197, 160, 89, 0.95);
+            color: #080807;
+            border: 1px solid #fff;
+            padding: 14px 24px;
+            border-radius: 40px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--g-glow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all .3s ease
+        }
+
+        .float-inquire:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: #ffffff;
+            color: #080807
+        }
+
+        .float-inquire-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #080807;
+            animation: pulseDot 1.8s infinite
+        }
+
+        @keyframes pulseDot {
+            0% {
+                transform: scale(0.9);
+                opacity: 1
+            }
+
+            50% {
+                transform: scale(1.4);
+                opacity: 0.5
+            }
+
+            100% {
+                transform: scale(0.9);
+                opacity: 1
+            }
+        }
+
+        @media(max-width:800px) {
+            .hero-controls {
+                right: 6vw;
+                bottom: 22vh;
+                gap: 14px
+            }
+
+            .hero-counter .curr {
+                font-size: 28px
+            }
+
+            .hero-content {
+                padding: 0 6vw 24vh
+            }
+
+            .hero-title {
+                font-size: clamp(38px, 11vw, 65px)
+            }
+
+            .hero-subtitle {
+                font-size: 18px
+            }
+
+            .float-inquire {
+                right: 20px;
+                bottom: 20px;
+                padding: 12px 18px;
+                font-size: 9px
+            }
+
+            .hero-thumbs-bar {
+                padding: 12px 5vw
+            }
+        }
+
+        .section {
+            padding: 130px 7vw
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 1s
+        }
+
+        .show {
+            opacity: 1;
+            transform: none
+        }
+
+        .statement {
+            min-height: 48vh;
+            display: grid;
+            place-items: center;
+            padding: 9vh 7vw;
+            border-bottom: 1px solid var(--l)
+        }
+
+        .statement h2 {
+            font-size: clamp(48px, 7vw, 110px);
+            line-height: .96;
+            max-width: 1200px;
+            margin: 0
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9vw;
+            align-items: center
+        }
+
+        .about-image {
+            height: 700px;
+            background: url('./images/courtyard.png') center/cover
+        }
+
+        .title {
+            font-size: clamp(46px, 6vw, 95px);
+            line-height: 1.05;
+            margin: 15px 0 30px
+        }
+
+        .body {
+            color: var(--s);
+            line-height: 1.85;
+            font-size: 14px;
+            max-width: 570px
+        }
+
+        .facts {
+            margin-top: 45px;
+            border-top: 1px solid var(--l)
+        }
+
+        .fact {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--l);
+            gap: 20px;
+            font-size: 12px
+        }
+
+        .fact b {
+            font-size: 9px;
+            letter-spacing: .16em;
+            color: var(--g);
+            font-weight: 400
+        }
+
+        .history {
+            margin-top: 45px;
+            display: flex;
+            gap: 10px;
+            overflow: auto;
+            padding-bottom: 5px
+        }
+
+        .year {
+            min-width: 150px;
+            border-left: 1px solid var(--g);
+            padding: 0 0 25px 15px
+        }
+
+        .year strong {
+            display: block;
+            font: 30px Georgia, serif
+        }
+
+        .year span {
+            display: block;
+            margin-top: 8px;
+            color: var(--m);
+            font-size: 11px;
+            line-height: 1.5
+        }
+
+        .services {
+            background: #11110f
+        }
+
+        .service {
+            display: grid;
+            grid-template-columns: 60px 1fr 1fr;
+            gap: 30px;
+            padding: 38px 0;
+            border-top: 1px solid var(--l)
+        }
+
+        .service:last-child {
+            border-bottom: 1px solid var(--l)
+        }
+
+        .service h3 {
+            font-size: 34px;
+            margin: 0
+        }
+
+        .service p {
+            margin: 0;
+            color: var(--m);
+            line-height: 1.7;
+            font-size: 13px
+        }
+
+        .portfolio-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 45px
+        }
+
+        .work {
+            height: 64vh;
+            min-height: 480px;
+            position: relative;
+            overflow: hidden;
+            margin: 16px 0;
+            cursor: pointer
+        }
+
+        .work img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1.2s
+        }
+
+        .work:hover img {
+            transform: scale(1.045)
+        }
+
+        .work:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #050504c9, transparent 75%), linear-gradient(transparent, #080807c9)
+        }
+
+        .work-copy {
+            position: absolute;
+            z-index: 2;
+            left: 5vw;
+            bottom: 7vh
+        }
+
+        .work-copy h3 {
+            font-size: clamp(50px, 8vw, 120px);
+            line-height: .8;
+            margin: 12px 0
+        }
+
+        .enter {
+            position: absolute;
+            z-index: 2;
+            right: 5vw;
+            bottom: 6vh;
+            border: 1px solid #fff6;
+            background: #09090899;
+            border-radius: 30px;
+            padding: 13px 20px;
+            font-size: 9px;
+            letter-spacing: .15em
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 960px;
+            gap: 24px;
+            margin-top: 45px
+        }
+
+        .person {
+            height: 520px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            position: relative;
+            background-size: cover;
+            background-position: center
+        }
+
+        .person:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, #080807e8)
+        }
+
+        .person>* {
+            position: relative;
+            z-index: 1
+        }
+
+        .person h3 {
+            font-size: 27px;
+            margin: 8px 0
+        }
+
+        .role {
+            font-size: 9px;
+            letter-spacing: .16em;
+            color: var(--g);
+            text-transform: uppercase
+        }
+
+        .person p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--s);
+            margin: 0
+        }
+
+        .testimonials {
+            background: #c8c1b6;
+            color: #171613;
+            min-height: 80vh;
+            display: flex;
+            align-items: center
+        }
+
+        .testimonials .ey {
+            color: #745d3b
+        }
+
+        .quote {
+            font: clamp(38px, 6vw, 94px)/1.02 Georgia, serif;
+            letter-spacing: -.05em;
+            max-width: 1200px;
+            margin: 35px 0
+        }
+
+        .quote-by {
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+            margin-top: 35px
+        }
+
+        .dot {
+            width: 30px;
+            height: 2px;
+            background: #17161333;
+            border: 0;
+            padding: 0
+        }
+
+        .dot.active {
+            background: #a48450
+        }
+
+        .contact {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: radial-gradient(circle at 80% 25%, #302719, transparent 35%)
+        }
+
+        .contact h2 {
+            font-size: clamp(55px, 9vw, 145px);
+            line-height: .84;
+            margin: 20px 0
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            border-top: 1px solid var(--l);
+            padding-top: 30px;
+            margin-top: 50px
+        }
+
+        .contact-grid p {
+            color: var(--s);
+            font-size: 14px
+        }
+
+        .contact-grid a {
+            font-size: 16px
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            inset: 0;
+            background: var(--b);
+            overflow: auto
+        }
+
+        .modal.open {
+            display: block
+        }
+
+        .close {
+            position: fixed;
+            z-index: 110;
+            right: 5vw;
+            top: 20px;
+            border: 1px solid #fff4;
+            background: #090908dd;
+            border-radius: 30px;
+            padding: 10px 16px;
+            font-size: 9px;
+            letter-spacing: .15em
+        }
+
+        .sound {
+            position: fixed;
+            z-index: 110;
+            right: 125px;
+            top: 20px;
+            border: 1px solid #fff4;
+            background: #090908dd;
+            border-radius: 30px;
+            padding: 10px 16px;
+            font-size: 9px;
+            letter-spacing: .15em
+        }
+
+        .journey-hero {
+            height: 100svh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: end;
+            padding: 8vh 7vw
+        }
+
+        .journey-hero:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #050504d5, transparent 72%), linear-gradient(transparent, #080807)
+        }
+
+        .journey-title {
+            position: relative;
+            z-index: 2
+        }
+
+        .journey-title h1 {
+            font-size: clamp(60px, 11vw, 160px);
+            line-height: .8;
+            margin: 15px 0
+        }
+
+        .mode {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: #080807e9;
+            backdrop-filter: blur(15px);
+            padding: 15px 7vw;
+            border-bottom: 1px solid var(--l);
+            display: flex;
+            gap: 25px;
+            align-items: center
+        }
+
+        .mode button {
+            background: none;
+            border: 0;
+            font-size: 9px;
+            letter-spacing: .14em
+        }
+
+        .light {
+            margin-left: auto;
+            width: 180px;
+            height: 1px;
+            background: #3a3731;
+            position: relative
+        }
+
+        .light:before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: var(--p, 0%);
+            width: 7px;
+            height: 7px;
+            background: var(--g);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--g);
+            transition: left .4s ease
+        }
+
+        .free {
+            display: none;
+            position: fixed;
+            z-index: 105;
+            left: 5vw;
+            bottom: 5vh;
+            background: #10100eee;
+            border: 1px solid #ffffff20;
+            padding: 15px;
+            width: 250px
+        }
+
+        .free.open {
+            display: block
+        }
+
+        .free a {
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #ffffff15;
+            font-size: 9px;
+            letter-spacing: .13em
+        }
+
+        .chapter {
+            min-height: 100svh;
+            display: grid;
+            grid-template-columns: 1fr 1fr
+        }
+
+        .chapter:nth-child(even) .scene {
+            order: 2
+        }
+
+        .scene {
+            min-height: 100svh;
+            background-size: cover;
+            background-position: center;
+            position: relative
+        }
+
+        .material .lens {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 100vmax #0009;
+            pointer-events: none
+        }
+
+        .chapter-copy {
+            padding: 12vw 8vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .chapter-copy h2 {
+            font-size: clamp(45px, 7vw, 105px);
+            line-height: .86;
+            margin: 15px 0
+        }
+
+        .chapter-copy p {
+            max-width: 470px;
+            color: var(--s);
+            font-size: 14px;
+            line-height: 1.85
+        }
+
+        .times {
+            display: flex;
+            border: 1px solid var(--l);
+            border-radius: 30px;
+            width: max-content;
+            overflow: hidden;
+            margin-top: 30px
+        }
+
+        .times button {
+            background: none;
+            border: 0;
+            padding: 12px 17px;
+            color: var(--m);
+            font-size: 9px
+        }
+
+        .times .active {
+            background: var(--w);
+            color: #111
+        }
+
+        .final {
+            min-height: 100svh;
+            background-size: cover;
+            background-position: center;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            position: relative
+        }
+
+        .final:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #080807a8
+        }
+
+        .final div {
+            position: relative;
+            z-index: 2
+        }
+
+        .final h2 {
+            font-size: clamp(50px, 8vw, 130px);
+            line-height: .88
+        }
+
+        .back {
+            border: 1px solid #fff5;
+            border-radius: 30px;
+            padding: 14px 20px;
+            background: none;
+            font-size: 9px;
+            letter-spacing: .14em
+        }
+
+        @media(max-width:800px) {
+
+            html,
+            body {
+                overflow-x: hidden !important;
+                max-width: 100vw
+            }
+
+            .links,
+            .cta {
+                display: none
+            }
+
+            .menu {
+                display: block;
+                background: none;
+                border: 1px solid #fff4;
+                border-radius: 30px;
+                padding: 9px 12px;
+                font-size: 9px
+            }
+
+            .section {
+                padding: 70px 5vw
+            }
+
+            .about {
+                display: flex;
+                flex-direction: column;
+                gap: 24px
+            }
+
+            .about-image {
+                height: 280px;
+                width: 100%;
+                border-radius: 8px;
+                overflow: hidden
+            }
+
+            .title {
+                font-size: clamp(26px, 6.5vw, 40px);
+                line-height: 1.12;
+                margin: 12px 0 20px;
+                word-wrap: break-word
+            }
+
+            .statement {
+                min-height: auto;
+                padding: 50px 5vw;
+                border-bottom: 1px solid var(--l)
+            }
+
+            .statement h2 {
+                font-size: clamp(26px, 6.5vw, 44px);
+                line-height: 1.1
+            }
+
+            .service {
+                grid-template-columns: 40px 1fr
+            }
+
+            .service p {
+                grid-column: 2
+            }
+
+            .team {
+                grid-template-columns: 1fr;
+                gap: 20px
+            }
+
+            .person {
+                height: 380px
+            }
+
+            .fact {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 14px 0
+            }
+
+            .history {
+                flex-direction: column;
+                overflow: visible;
+                gap: 10px
+            }
+
+            .year {
+                min-width: auto;
+                padding: 0 0 15px 15px
+            }
+
+            .portfolio-head {
+                display: block
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .chapter {
+                grid-template-columns: 1fr;
+                min-height: auto
+            }
+
+            .chapter:nth-child(even) .scene {
+                order: 0
+            }
+
+            .scene {
+                min-height: 55svh
+            }
+
+            .chapter-copy {
+                padding: 16vw 7vw;
+                min-height: 50svh
+            }
+
+            .sound {
+                right: 105px
+            }
+
+            .light {
+                width: 80px
+            }
+
+            .work-copy {
+                left: 6vw;
+                bottom: 5vh;
+                right: 6vw
+            }
+
+            .work-copy h3 {
+                font-size: clamp(32px, 7vw, 55px);
+                line-height: .95;
+                margin: 8px 0
+            }
+
+            .work {
+                height: 50vh;
+                margin: 20px 0;
+                border-radius: 8px;
+                overflow: hidden
+            }
+
+            .free {
+                width: 220px
+            }
+
+            .material .lens {
+                width: 160px;
+                height: 160px
+            }
+        }
+
+        .line-mask {
+            overflow: hidden;
+            display: block;
+            padding-bottom: 0.18em;
+            margin-bottom: -0.18em;
+            vertical-align: top
+        }
+
+        .line-inner {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(35px);
+            will-change: transform, opacity
+        }
+
+        .pre-reveal {
+            opacity: 0;
+            transform: translateY(46px);
+            will-change: transform, opacity
+        }
+
+        .loader {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: var(--b);
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .loader span {
+            font-family: Georgia, serif;
+            font-size: 13px;
+            letter-spacing: .5em;
+            color: var(--w);
+            opacity: 0;
+            padding-left: .5em
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--g);
+            width: 0%;
+            z-index: 60
+        }
+
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--g);
+            pointer-events: none;
+            z-index: 120;
+            transform: translate(-50%, -50%);
+            opacity: 0
+        }
+
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 34px;
+            height: 34px;
+            border: 1px solid #ffffff55;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 119;
+            transform: translate(-50%, -50%);
+            opacity: 0
+        }
+
+        .cursor-ring.big {
+            width: 68px;
+            height: 68px;
+            border-color: var(--g)
+        }
+
+        body.has-cursor,
+        body.has-cursor a,
+        body.has-cursor button {
+            cursor: none !important
+        }
+
+        .work {
+            will-change: transform
+        }
+
+        .work img {
+            will-change: transform
+        }
+
+        @media(max-width:800px) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .loader {
+                display: none
+            }
+
+            .line-inner {
+                transform: none
+            }
+
+            .pre-reveal {
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader"><img src="./images/logo/logo.svg" alt="INOVO Logo"
+            class="loader-logo"><span>INOVO</span></div>
+    <div class="progress" id="progress"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <nav class="nav" id="nav"><a class="brand" href="#home" aria-label="INOVO Home"><img src="./images/logo/logo.svg"
+                alt="INOVO Logo" class="brand-logo"><span>INOVO</span></a>
+        <div class="links"><a href="#about">About</a><a href="#services">Services</a><a
+                href="#portfolio">Portfolio</a><a href="#team">Team</a><a href="#stories">Stories</a><a
+                href="#contact">Contact</a></div><a class="cta magnetic" href="#contact">Start a Project</a><button
+            class="menu magnetic">MENU</button>
+    </nav>
+    <section class="hero" id="home">
+        <div class="hero-slides" id="heroSlides"></div>
+        <div class="hero-controls">
+            <div class="hero-counter">
+                <span class="curr" id="heroCurr">01</span>
+                <span class="sep">/</span>
+                <span class="total" id="heroTotal">06</span>
+            </div>
+            <div class="hero-arrows">
+                <button class="hero-arrow magnetic" id="heroPrev" aria-label="Previous Slide">←</button>
+                <button class="hero-arrow magnetic" id="heroNext" aria-label="Next Slide">→</button>
+            </div>
+        </div>
+        <div class="hero-thumbs-bar" id="heroThumbs"></div>
+        <div class="hero-progress-track">
+            <div class="hero-progress-fill" id="heroProgress"></div>
+        </div>
+    </section>
+    <section class="statement reveal">
+        <h2 class="split">Don't just see the space.<br><span style="color:var(--g)">Feel what it is like to be
+                there.</span></h2>
+    </section>
+    <section class="section about reveal" id="about">
+        <div class="about-image pre-reveal"></div>
+        <div>
+            <div class="ey">About INOVO</div>
+            <h2 class="title split">A contemporary practice shaping the spaces people remember.</h2>
+            <p class="body pre-reveal">INOVO Developers is an architecture and interior design practice based in
+                Kozhikode, Kerala. Founded in 2017, the studio works across residential, commercial and hospitality
+                environments, bringing architecture, interiors and spatial experience together.</p>
+            <div class="facts">
+                <div class="fact pre-reveal"><b>VISION</b><span>To create spaces with lasting architectural and
+                        emotional value.</span></div>
+                <div class="fact pre-reveal"><b>NICHE</b><span>Contemporary, design-led architecture and refined
+                        interiors.</span></div>
+                <div class="fact pre-reveal"><b>DESIGN PHILOSOPHY</b><span>Clarity of form. Richness of material.
+                        Precision in every detail.</span></div>
+            </div>
+            <div class="history">
+                <div class="year pre-reveal"><strong>2017</strong><span>The practice is established.</span></div>
+                <div class="year pre-reveal"><strong>Today</strong><span>Work across residential, commercial and
+                        hospitality sectors.</span></div>
+                <div class="year pre-reveal"><strong>Next</strong><span>A continued exploration of new spaces, markets
+                        and design ideas.</span></div>
+            </div>
+        </div>
+    </section>
+    <section class="section services reveal" id="services">
+        <div class="ey">What we do</div>
+        <h2 class="title split">From first line<br>to final light.</h2>
+        <div class="service pre-reveal"><span class="ey">01</span>
+            <h3>Architecture</h3>
+            <p>Conceptual thinking, spatial planning and architectural design for distinctive homes and built
+                environments.</p>
+        </div>
+        <div class="service pre-reveal"><span class="ey">02</span>
+            <h3>Interior Design</h3>
+            <p>Interior environments shaped through proportion, materiality, furniture, light and atmosphere.</p>
+        </div>
+        <div class="service pre-reveal"><span class="ey">03</span>
+            <h3>3D Visualisation</h3>
+            <p>Immersive visual storytelling that helps clients understand and experience a project before it is built.
+            </p>
+        </div>
+        <div class="service pre-reveal"><span class="ey">04</span>
+            <h3>Landscape Design</h3>
+            <p>Indoor and outdoor environments considered as one continuous spatial experience.</p>
+        </div>
+    </section>
+    <section class="section reveal" id="portfolio">
+        <div class="portfolio-head">
+            <div>
+                <div class="ey">Selected Work</div>
+                <h2 class="title split">Enter the<br>architecture.</h2>
+            </div>
+            <div class="ey">10 project experiences</div>
+        </div>
+        <div class="portfolio-filters" id="portfolioFilters">
+            <button class="filter-btn active" data-filter="all">All Works</button>
+            <button class="filter-btn" data-filter="residential">Residential</button>
+            <button class="filter-btn" data-filter="interiors">Interiors</button>
+            <button class="filter-btn" data-filter="hospitality">Hospitality & Commercial</button>
+        </div>
+        <div id="works"></div>
+    </section>
+    <section class="section reveal" id="team">
+        <div class="ey">The Studio</div>
+        <h2 class="title split">The minds behind<br>the spaces.</h2>
+        <p class="body pre-reveal">A multidisciplinary team of architects and designers brought together by a shared
+            interest in how spaces look, work and feel.</p>
+        <div class="team" id="teamGrid"></div>
+    </section>
+    <section class="section testimonials reveal" id="stories">
+        <div>
+            <div class="ey">Client Stories</div>
+            <div class="quote" id="quote"></div>
+            <div class="quote-by" id="quoteBy"></div>
+            <div class="dots" id="dots"></div>
+        </div>
+    </section>
+    <section class="section contact reveal" id="contact">
+        <div class="ey">Start a conversation</div>
+        <h2 class="split">Let's create<br>something <span style="color:var(--g)">exceptional.</span></h2>
+        <div class="contact-grid">
+            <div class="pre-reveal">
+                <div class="ey">New Projects</div>
+                <p><a href="mailto:info@inovodevelopers.com">info@inovodevelopers.com</a></p>
+            </div>
+            <div class="pre-reveal">
+                <div class="ey">Studio</div>
+                <p>Kozhikode, Kerala<br>India</p>
+            </div>
+            <div class="pre-reveal">
+                <div class="ey">Begin</div>
+                <p><a href="mailto:info@inovodevelopers.com?subject=New%20Project">START A PROJECT →</a></p>
+            </div>
+        </div>
+    </section>
+    <button class="float-inquire magnetic" id="floatInquire" onclick="location.href='#contact'">
+        <span class="float-inquire-dot"></span>
+        <span>Start a Project</span>
+    </button>
+
+    <div class="modal" id="modal"><button class="close magnetic" onclick="closeProject()">CLOSE ×</button><button
+            class="sound magnetic" id="sound"
+            onclick="this.textContent=this.textContent==='SOUND OFF'?'SOUND ON':'SOUND OFF'">SOUND OFF</button>
+        <div class="free" id="free"></div>
+        <div id="journey"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+    <script>
+        const heroData = [
+            {
+                title: 'KALISTA',
+                subtitle: 'Spaces beyond expectation.',
+                tag: '01 · RESIDENTIAL ARCHITECTURE · KOZHIKODE',
+                desc: 'Contemporary villa architecture designed around movement, light, shadow and open courtyard living.',
+                img: './images/KALISTA.png',
+                projectIndex: 0
+            },
+            {
+                title: 'QASRE E IMARA',
+                subtitle: 'Grandeur in simple lines.',
+                tag: '02 · LUXURY RESIDENCE · EDAPPAL',
+                desc: 'A harmonious balance of modern scale, monolithic forms, and warm ambient light.',
+                img: './images/Faisal edappal.png',
+                projectIndex: 1
+            },
+            {
+                title: 'HARSHAM',
+                subtitle: 'Framed by nature.',
+                tag: '03 · TROPICAL ESTATE · WAYANAD',
+                desc: 'Architecture that breathes, connecting indoor sanctuary seamlessly with lush green landscapes.',
+                img: './images/Navas wayanad.png',
+                projectIndex: 2
+            },
+            {
+                title: 'INAAYATH',
+                subtitle: 'Light, shadow & texture.',
+                tag: '04 · COURTYARD RESIDENCE · KERALA',
+                desc: 'Refined spatial proportions enriched with natural materials and bespoke interior craft.',
+                img: './images/courtyard.png',
+                projectIndex: 3
+            },
+            {
+                title: 'MANNAT',
+                subtitle: 'Effortless luxury living.',
+                tag: '05 · REFINED INTERIORS · CALICUT',
+                desc: 'Understated spatial elegance designed for peaceful daily living with open glass facades.',
+                img: './images/living.png',
+                projectIndex: 4
+            },
+            {
+                title: 'AHAM',
+                subtitle: 'Built for timelessness.',
+                tag: '06 · COMMERCIAL & LANDMARK',
+                desc: 'Iconic architectural presence engineered with precision, spatial clarity and sculptural form.',
+                img: './images/Amer calicut.png',
+                projectIndex: 6
+            }
+        ];
+
+        let heroIndex = 0;
+        let heroTimer = null;
+        let progressTimer = null;
+        const SLIDE_DURATION = 6000;
+
+        function initHeroShowcase() {
+            const container = document.getElementById('heroSlides');
+            const thumbs = document.getElementById('heroThumbs');
+            const totalEl = document.getElementById('heroTotal');
+            if (!container || !thumbs) return;
+
+            totalEl.textContent = String(heroData.length).padStart(2, '0');
+
+            container.innerHTML = heroData.map((s, i) => `
+                <div class="hero-slide ${i === 0 ? 'active' : ''}" id="slide-${i}">
+                    <div class="hero-slide-bg" style="background-image: url('${s.img}')"></div>
+                    <div class="hero-content">
+                        <div class="hero-tag">${s.tag}</div>
+                        <h1 class="hero-title">${s.title}</h1>
+                        <div class="hero-subtitle">${s.subtitle}</div>
+                        <p class="hero-desc">${s.desc}</p>
+                        <div class="hero-actions">
+                            <button class="hero-cta magnetic" onclick="openProject(${s.projectIndex})">
+                                <span>EXPLORE SPATIAL EXPERIENCE →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            thumbs.innerHTML = heroData.map((s, i) => `
+                <button class="hero-thumb ${i === 0 ? 'active' : ''}" onclick="goToHeroSlide(${i})">
+                    <span class="hero-thumb-num">0${i + 1}</span>
+                    <span>${s.title}</span>
+                </button>
+            `).join('');
+
+            document.getElementById('heroPrev').onclick = () => {
+                let prev = (heroIndex - 1 + heroData.length) % heroData.length;
+                goToHeroSlide(prev);
+            };
+
+            document.getElementById('heroNext').onclick = () => {
+                let next = (heroIndex + 1) % heroData.length;
+                goToHeroSlide(next);
+            };
+
+            // Touch swipe support for mobile
+            let touchStartX = 0;
+            const heroSection = document.getElementById('home');
+            heroSection.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+            heroSection.addEventListener('touchend', e => {
+                let diff = touchStartX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) goToHeroSlide((heroIndex + 1) % heroData.length);
+                    else goToHeroSlide((heroIndex - 1 + heroData.length) % heroData.length);
+                }
+            }, { passive: true });
+
+            startHeroTimer();
+        }
+
+        function goToHeroSlide(index) {
+            if (index === heroIndex) return;
+            const currentSlide = document.getElementById(`slide-${heroIndex}`);
+            const nextSlide = document.getElementById(`slide-${index}`);
+            const thumbs = document.querySelectorAll('.hero-thumb');
+
+            if (currentSlide) currentSlide.classList.remove('active');
+            if (nextSlide) nextSlide.classList.add('active');
+
+            thumbs.forEach((t, i) => t.classList.toggle('active', i === index));
+
+            heroIndex = index;
+            document.getElementById('heroCurr').textContent = String(heroIndex + 1).padStart(2, '0');
+
+            startHeroTimer();
+        }
+
+        function startHeroTimer() {
+            clearInterval(heroTimer);
+            clearInterval(progressTimer);
+
+            const fill = document.getElementById('heroProgress');
+            if (fill) fill.style.width = '0%';
+
+            let startTime = Date.now();
+            progressTimer = setInterval(() => {
+                let elapsed = Date.now() - startTime;
+                let pct = Math.min(100, (elapsed / SLIDE_DURATION) * 100);
+                if (fill) fill.style.width = pct + '%';
+            }, 50);
+
+            heroTimer = setInterval(() => {
+                goToHeroSlide((heroIndex + 1) % heroData.length);
+            }, SLIDE_DURATION);
+        }
+
+        imgs = ['./images/KALISTA.png', './images/Navas wayanad.png', './images/Faisal edappal.png', './images/courtyard.png', './images/living.png', './images/dining.png', './images/KALISTA (2).png', './images/Navas wayanad (2).png', './images/courtyard (2).png', './images/living (2).png'];
+        projects = ['DHWANI', 'QASRE E IMARA', 'HARSHAM', 'INAAYATH', 'MANNAT', 'ASTHAH', 'AHAM', 'NILA', 'PORTICO', 'WAYSIDE'];
+        const categories = ['residential', 'interiors', 'residential', 'interiors', 'residential', 'residential', 'hospitality', 'interiors', 'hospitality', 'residential'];
+
+        function renderPortfolio() {
+            const worksEl = document.getElementById('works');
+            if (!worksEl) return;
+            worksEl.innerHTML = projects.map((p, i) => `
+                <article class="work pre-reveal" data-category="${categories[i]}" onclick="openProject(${i})">
+                    <img src="${imgs[i]}" alt="${p}">
+                    <div class="work-copy">
+                        <div class="ey">PROJECT ${String(i + 1).padStart(2, '0')} · ${categories[i].toUpperCase()}</div>
+                        <h3 class="split">${p}</h3>
+                        <div class="ey">ENTER THE SPACE</div>
+                    </div>
+                    <button class="enter magnetic">ENTER →</button>
+                </article>
+            `).join('');
+
+            // Portfolio filter handling
+            document.querySelectorAll('#portfolioFilters .filter-btn').forEach(btn => {
+                btn.onclick = () => {
+                    document.querySelectorAll('#portfolioFilters .filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const cat = btn.dataset.filter;
+                    document.querySelectorAll('.work').forEach(card => {
+                        if (cat === 'all' || card.dataset.category === cat) {
+                            card.style.display = 'block';
+                            if (window.gsap) gsap.to(card, { opacity: 1, scale: 1, duration: 0.5 });
+                        } else {
+                            if (window.gsap) {
+                                gsap.to(card, { opacity: 0, scale: 0.95, duration: 0.3, onComplete: () => { card.style.display = 'none'; } });
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                };
+            });
+        }
+
+        renderPortfolio();
+        initHeroShowcase();
+        const team = [
+            ['Noufal Muhammed', 'Architect / Design Leadership', './images/member-1.jpeg', '“The strongest architecture begins with understanding how a space should feel.”'],
+            ['Firas MP', 'Architect / Design Partner', './images/member-2.jpeg', '“Design is the relationship between proportion, purpose and experience.”']
+        ];
+        document.getElementById('teamGrid').innerHTML = team.map(x => `<div class="person pre-reveal" style="background-image:url('${x[2]}')"><span class="role">${x[1]}</span><h3>${x[0]}</h3><p>${x[3]}</p></div>`).join('');
+        const testimonials = [['“INOVO understood how we wanted to live before we knew how to explain it.”', 'PRIVATE RESIDENTIAL CLIENT · KOZHIKODE'], ['“The process felt considered from the first conversation through to the smallest details.”', 'PROJECT CLIENT · KERALA'], ['“What we received was more than a finished space. It changed how we experience our home.”', 'PRIVATE CLIENT · KERALA']];
+        let qi = 0; function renderQuote() { quote.textContent = testimonials[qi][0]; quoteBy.textContent = testimonials[qi][1]; dots.innerHTML = testimonials.map((_, i) => `<button class="dot magnetic ${i === qi ? 'active' : ''}" onclick="qi=${i};renderQuote()"></button>`).join('') } renderQuote(); setInterval(() => { qi = (qi + 1) % testimonials.length; renderQuote() }, 6500);
+        function openProject(i) {
+            const p = projects[i]; const scenes = [['APPROACH', 'The first impression.', 'The journey begins before the front door. Architecture emerges gradually through landscape, massing and shadow.', imgs[i]], ['ARRIVAL', 'The pause before entry.', 'Movement slows. Scale becomes more intimate. Material and light begin to define the experience.', imgs[(i + 2) % 10]], ['THRESHOLD', 'Between outside and in.', 'A moment of compression creates anticipation before the interior reveals itself.', imgs[(i + 3) % 10]], ['REVEAL', 'The heart of the space.', 'Volume, proportion and light come together in a moment of release.', imgs[(i + 4) % 10]], ['MATERIALITY', 'Designed to be felt.', 'Move across the surface and discover detail. Luxury is often experienced through what you touch.', imgs[(i + 5) % 10]], ['LANDSCAPE', 'A room without walls.', 'Architecture and nature are treated as one continuous environment.', imgs[(i + 7) % 10]], ['NIGHT', 'A second identity.', 'As daylight disappears, light redraws the architecture and the atmosphere changes completely.', imgs[(i + 8) % 10]]];
+            journey.innerHTML = `<section class="journey-hero" style="background-image:url('${imgs[i]}')"><div class="journey-title"><div class="ey">INOVO SPATIAL EXPERIENCE · PROJECT ${String(i + 1).padStart(2, '0')}</div><h1 class="split">${p}</h1><p style="color:var(--s);max-width:430px;line-height:1.7">A guided journey through movement, threshold, material and atmosphere.</p></div></section><div class="mode"><button>GUIDED JOURNEY</button><button onclick="free.classList.toggle('open')">EXPLORE FREELY</button><div class="light" id="light"></div></div>${scenes.map((s, k) => `<section class="chapter" id="chapter${k}"><div class="scene pre-reveal ${s[0] === 'MATERIALITY' ? 'material' : ''}" style="background-image:url('${s[3]}')">${s[0] === 'MATERIALITY' ? '<div class="lens"></div>' : ''}</div><div class="chapter-copy pre-reveal"><div class="ey">${String(k + 1).padStart(2, '0')} — ${s[0]}</div><h2 class="split">${s[1]}</h2><p>${s[2]}</p>${s[0] === 'REVEAL' ? '<div class="times"><button class="active" onclick="time(this,1.1)">MORNING</button><button onclick="time(this,.9)">AFTERNOON</button><button onclick="time(this,.55)">EVENING</button></div>' : ''}</div></section>`).join('')}<section class="final" style="background-image:url('${imgs[(i + 9) % 10]}')"><div><div class="ey">INOVO</div><h2 class="split">Some spaces are seen.<br>Others are remembered.</h2><button class="back magnetic" onclick="closeProject()">RETURN TO INOVO</button></div></section>`;
+            free.innerHTML = scenes.map((s, k) => `<a href="#chapter${k}" onclick="free.classList.remove('open')">${String(k + 1).padStart(2, '0')} · ${s[0]}</a>`).join(''); modal.classList.add('open'); document.body.style.overflow = 'hidden'; modal.scrollTop = 0; setTimeout(bindJourney, 100); setTimeout(function () { if (window.onJourneyOpen) window.onJourneyOpen() }, 110)
+        }
+        function closeProject() { modal.classList.remove('open'); document.body.style.overflow = 'auto'; free.classList.remove('open') }
+        function time(b, v) { b.parentElement.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); b.closest('.chapter').querySelector('.scene').style.filter = `brightness(${v})` }
+        function bindJourney() { modal.onscroll = () => { let cs = [...document.querySelectorAll('.chapter')], n = 0; cs.forEach((c, i) => { if (Math.abs(c.getBoundingClientRect().top) < innerHeight * .5) n = i }); let l = document.getElementById('light'); if (l) l.style.setProperty('--p', (n / (cs.length - 1) * 100) + '%') }; document.querySelectorAll('.material').forEach(el => el.onmousemove = e => { let r = el.getBoundingClientRect(), l = el.querySelector('.lens'); l.style.left = e.clientX - r.left + 'px'; l.style.top = e.clientY - r.top + 'px' }) }
+        document.addEventListener('mousemove', e => { if (innerWidth > 800) { let x = (e.clientX / innerWidth - .5) * 12, y = (e.clientY / innerHeight - .5) * 12; heroBg.style.transform = `translate(${x}px,${y}px) scale(1.06)` } });
+        addEventListener('scroll', () => { nav.classList.toggle('on', scrollY > 50); document.querySelectorAll('.reveal').forEach(x => { if (x.getBoundingClientRect().top < innerHeight * .88) x.classList.add('show') }) }, { passive: true }); dispatchEvent(new Event('scroll'));
+    </script>
+    <script>
+        (function () {
+            try {
+
+                var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+                gsap.registerPlugin(ScrollTrigger);
+
+                /* ---------- text line-splitting (mask reveal) ---------- */
+                function splitLines(el) {
+                    if (!el || el.dataset.split) return;
+                    el.dataset.split = '1';
+                    var parts = el.innerHTML.split(/<br\s*\/?>/i);
+                    el.innerHTML = parts.map(function (p) {
+                        return '<span class="line-mask"><span class="line-inner">' + p + '</span></span>';
+                    }).join('');
+                }
+                document.querySelectorAll('.split').forEach(splitLines);
+
+                function revealSplit(el, opts) {
+                    opts = opts || {};
+                    var lines = el.querySelectorAll('.line-inner');
+                    if (!lines.length) return;
+                    gsap.to(lines, { opacity: 1, y: 0, duration: reduced ? 0 : 1, ease: 'power3.out', stagger: reduced ? 0 : .08, delay: opts.delay || 0 });
+                }
+
+                /* ---------- smooth scroll (Lenis) ---------- */
+                var lenis = null;
+                if (!reduced && window.Lenis) {
+                    lenis = new Lenis({ duration: 1.05, easing: function (t) { return 1 - Math.pow(1 - t, 3) } });
+                    lenis.on('scroll', ScrollTrigger.update);
+                    gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+                    gsap.ticker.lagSmoothing(0);
+                }
+
+                /* ---------- top scroll progress bar ---------- */
+                var progress = document.getElementById('progress');
+                function updateProgress() {
+                    if (!progress) return;
+                    var h = document.documentElement;
+                    var max = h.scrollHeight - h.clientHeight;
+                    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+                    progress.style.width = pct + '%';
+                }
+                window.addEventListener('scroll', updateProgress, { passive: true });
+
+                /* ---------- staggered fade-up reveals for repeated content ---------- */
+                var batchSelectors = ['.fact', '.year', '.service', '.work', '.person', '.contact-grid > div'];
+                batchSelectors.forEach(function (sel) {
+                    ScrollTrigger.batch(sel, {
+                        start: 'top 88%',
+                        once: true,
+                        onEnter: function (batch) {
+                            gsap.to(batch, { opacity: 1, y: 0, duration: reduced ? 0 : .9, ease: 'power3.out', stagger: reduced ? 0 : .12 });
+                        }
+                    });
+                });
+                gsap.utils.toArray('.about-image, .body, .chapter-copy, .scene').forEach(function (el) {
+                    ScrollTrigger.create({
+                        trigger: el, start: 'top 90%', once: true,
+                        onEnter: function () { gsap.to(el, { opacity: 1, y: 0, duration: reduced ? 0 : 1, ease: 'power3.out' }); }
+                    });
+                });
+
+                /* scroll-triggered line reveals for section headings (not the hero, handled separately) */
+                document.querySelectorAll('.split').forEach(function (el) {
+                    if (el.closest('.hero')) return;
+                    ScrollTrigger.create({
+                        trigger: el, start: 'top 85%', once: true,
+                        onEnter: function () { revealSplit(el); }
+                    });
+                });
+
+                /* ---------- page load sequence ---------- */
+                var loader = document.getElementById('loader');
+                function heroIntro() {
+                    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+                    tl.to('.nav', { y: 0, opacity: 1, duration: reduced ? 0 : .8 }, 0)
+                        .to('.hero .ey', { opacity: 1, y: 0, duration: reduced ? 0 : .7 }, .15)
+                        .add(function () { revealSplit(document.querySelector('.hero h1')); }, .3)
+                        .to('.hero p', { opacity: 1, y: 0, duration: reduced ? 0 : .8 }, .75)
+                        .to('.scroll', { opacity: 1, duration: reduced ? 0 : .8 }, .95)
+                        .fromTo('.hero-bg', { scale: 1.18, opacity: 0 }, { scale: 1.06, opacity: 1, duration: reduced ? 0 : 1.6, ease: 'power2.out' }, 0);
+                }
+                gsap.set('.nav', { y: -14, opacity: 0 });
+                gsap.set('.hero .ey, .hero p, .scroll', { opacity: 0, y: 14 });
+
+                if (loader) {
+                    if (reduced) {
+                        loader.style.display = 'none';
+                        heroIntro();
+                    } else {
+                        var lt = gsap.timeline({ onComplete: function () { loader.style.display = 'none'; heroIntro(); } });
+                        lt.to('.loader-logo, .loader span', { opacity: 1, letterSpacing: '.7em', duration: .7, ease: 'power2.out' })
+                            .to('.loader-logo, .loader span', { opacity: 0, duration: .35, delay: .25 })
+                            .to('.loader', { opacity: 0, duration: .5, ease: 'power2.inOut' }, '-=.1');
+                    }
+                } else {
+                    heroIntro();
+                }
+
+                /* ---------- magnetic buttons ---------- */
+                if (!reduced && matchMedia('(pointer:fine)').matches) {
+                    document.querySelectorAll('.magnetic').forEach(function (btn) {
+                        var qx = gsap.quickTo(btn, 'x', { duration: .4, ease: 'power3.out' });
+                        var qy = gsap.quickTo(btn, 'y', { duration: .4, ease: 'power3.out' });
+                        btn.addEventListener('mousemove', function (e) {
+                            var r = btn.getBoundingClientRect();
+                            qx((e.clientX - r.left - r.width / 2) * .35);
+                            qy((e.clientY - r.top - r.height / 2) * .35);
+                        });
+                        btn.addEventListener('mouseleave', function () { qx(0); qy(0); });
+                    });
+                }
+
+                /* ---------- custom cursor ---------- */
+                if (!reduced && matchMedia('(pointer:fine)').matches && innerWidth > 800) {
+                    document.body.classList.add('has-cursor');
+                    var dot = document.getElementById('cursorDot');
+                    var ring = document.getElementById('cursorRing');
+                    if (dot && ring) {
+                        var dx = gsap.quickTo(dot, 'x', { duration: .1 }), dy = gsap.quickTo(dot, 'y', { duration: .1 });
+                        var rx = gsap.quickTo(ring, 'x', { duration: .35, ease: 'power3.out' }), ry = gsap.quickTo(ring, 'y', { duration: .35, ease: 'power3.out' });
+                        gsap.set([dot, ring], { opacity: 0 });
+                        var shown = false;
+                        document.addEventListener('mousemove', function (e) {
+                            if (!shown) { gsap.to([dot, ring], { opacity: 1, duration: .3 }); shown = true; }
+                            dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY);
+                        });
+                        document.querySelectorAll('a, button, .work').forEach(function (el) {
+                            el.addEventListener('mouseenter', function () { ring.classList.add('big'); });
+                            el.addEventListener('mouseleave', function () { ring.classList.remove('big'); });
+                        });
+                    }
+                }
+
+                /* ---------- portfolio card depth parallax ---------- */
+                if (!reduced && matchMedia('(pointer:fine)').matches) {
+                    document.querySelectorAll('.work').forEach(function (card) {
+                        var img = card.querySelector('img');
+                        if (!img) return;
+                        var qx = gsap.quickTo(img, 'x', { duration: .6, ease: 'power3.out' });
+                        var qy = gsap.quickTo(img, 'y', { duration: .6, ease: 'power3.out' });
+                        card.addEventListener('mousemove', function (e) {
+                            var r = card.getBoundingClientRect();
+                            qx((e.clientX - r.left - r.width / 2) * .04);
+                            qy((e.clientY - r.top - r.height / 2) * .04);
+                        });
+                        card.addEventListener('mouseleave', function () { qx(0); qy(0); });
+                    });
+                }
+
+                /* ---------- testimonial crossfade ---------- */
+                if (typeof renderQuote === 'function' && typeof quote !== 'undefined') {
+                    var _origRenderQuote = renderQuote;
+                    renderQuote = function () {
+                        if (reduced) { _origRenderQuote(); return; }
+                        gsap.to([quote, quoteBy], {
+                            opacity: 0, y: 8, duration: .3, ease: 'power2.in', onComplete: function () {
+                                _origRenderQuote();
+                                gsap.fromTo([quote, quoteBy], { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .6, ease: 'power2.out' });
+                            }
+                        });
+                    };
+                }
+
+                /* ---------- journey modal: reveal + smoother light + lens ---------- */
+                window.onJourneyOpen = function () {
+                    document.querySelectorAll('#journey .split').forEach(splitLines);
+                    revealSplit(document.querySelector('.journey-title h1'));
+                    gsap.fromTo('.journey-hero', { opacity: 0 }, { opacity: 1, duration: reduced ? 0 : 1 });
+
+                    document.querySelectorAll('#journey .split').forEach(function (el) {
+                        if (el.closest('.journey-title')) return;
+                        ScrollTrigger.create({
+                            trigger: el, scroller: '#modal', start: 'top 85%', once: true,
+                            onEnter: function () { revealSplit(el); }
+                        });
+                    });
+                    document.querySelectorAll('#journey .pre-reveal').forEach(function (el) {
+                        ScrollTrigger.create({
+                            trigger: el, scroller: '#modal', start: 'top 88%', once: true,
+                            onEnter: function () { gsap.to(el, { opacity: 1, y: 0, duration: reduced ? 0 : .9, ease: 'power3.out' }); }
+                        });
+                    });
+
+                    // smooth the "light" progress dot (CSS transition handles the easing, see .light:before)
+                    var lightEl = document.getElementById('light');
+                    var modalEl = document.getElementById('modal');
+                    if (lightEl && modalEl) {
+                        modalEl.onscroll = function () {
+                            var cs = [...document.querySelectorAll('.chapter')], n = 0;
+                            cs.forEach(function (c, i) { if (Math.abs(c.getBoundingClientRect().top) < innerHeight * .5) n = i; });
+                            if (cs.length > 1) lightEl.style.setProperty('--p', (n / (cs.length - 1) * 100) + '%');
+                        };
+                    }
+
+                    ScrollTrigger.refresh();
+                };
+
+                /* refresh ScrollTrigger sizes after everything settles */
+                window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+
+            } catch (err) {
+                console.warn('Animation layer failed, falling back to static view:', err);
+                document.querySelectorAll('.pre-reveal').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+                document.querySelectorAll('.line-inner').forEach(function (el) { el.style.transform = 'none'; });
+                var l = document.getElementById('loader'); if (l) l.style.display = 'none';
+                document.querySelectorAll('.nav,.hero .ey,.hero p,.scroll').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+            }
+        })();
+    </script>
+</body>
+
+
+</html>

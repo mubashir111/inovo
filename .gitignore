@@ -1,0 +1,24 @@
+# System Files
+.DS_Store
+
+# Large archives and render outputs
+render post landscape.zip
+render post landscape/
+
+# Ignore all images by default, whitelist only the ones referenced in index.html
+images/*
+!images/logo/
+!images/logo/logo.svg
+!images/courtyard.png
+!images/KALISTA.png
+!images/Faisal edappal.png
+!images/Navas wayanad.png
+!images/living.png
+!images/Amer calicut.png
+!images/dining.png
+!images/KALISTA (2).png
+!images/Navas wayanad (2).png
+!images/courtyard (2).png
+!images/living (2).png
+!images/member-1.jpeg
+!images/member-2.jpeg
