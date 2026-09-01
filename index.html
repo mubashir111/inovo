@@ -311,6 +311,31 @@
             transform: translateY(-2px)
         }
 
+        .hero-cta-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(18, 18, 16, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--w);
+            padding: 14px 26px;
+            border-radius: 40px;
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            transition: all .35s ease;
+            cursor: pointer
+        }
+
+        .hero-cta-video:hover {
+            border-color: var(--g);
+            color: var(--g);
+            background: rgba(18, 18, 16, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.25);
+        }
+
         /* Stapati-style Counter & Nav */
         .hero-controls {
             position: absolute;
@@ -571,9 +596,8 @@
         }
 
         .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition: 1s
+            opacity: 1;
+            transform: none;
         }
 
         .show {
@@ -605,7 +629,7 @@
 
         .about-image {
             height: 700px;
-            background: url('./images/courtyard.png') center/cover
+            background: url('./images/VELORA/DSC00276 copy.webp') center/cover
         }
 
         .title {
@@ -744,6 +768,22 @@
             margin: 12px 0
         }
 
+        .work-video-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 4px 0 10px;
+            font-size: 8px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--g);
+            background: rgba(8, 8, 7, 0.85);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 5px 12px;
+            border-radius: 14px;
+            backdrop-filter: blur(8px);
+        }
+
         .enter {
             position: absolute;
             z-index: 2;
@@ -807,47 +847,385 @@
             margin: 0
         }
 
+        /* Films & Cinematic Walkthroughs Section */
+        .films-section {
+            padding: 12vh 7vw;
+            border-top: 1px solid var(--l);
+            position: relative;
+        }
+
+        .films-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .films-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1280px;
+        }
+
+        .film-card {
+            background: #121210;
+            border: 1px solid var(--l);
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: border-color .4s, transform .4s ease, box-shadow .4s ease;
+        }
+
+        .film-card:hover {
+            border-color: rgba(197, 160, 89, 0.45);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+        }
+
+        .film-video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9.5;
+            background: #080807;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .film-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .film-play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(8, 8, 7, 0.35);
+            transition: background .3s, opacity .3s;
+            pointer-events: none;
+        }
+
+        .film-card.is-playing .film-play-overlay {
+            opacity: 0;
+        }
+
+        .film-card:hover .film-play-overlay {
+            background: rgba(8, 8, 7, 0.2);
+        }
+
+        .film-play-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(18, 18, 16, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--g);
+            color: var(--g);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            transition: transform .3s, background .3s, color .3s;
+            pointer-events: auto;
+        }
+
+        .film-card:hover .film-play-btn {
+            transform: scale(1.1);
+            background: var(--g);
+            color: #080807;
+        }
+
+        .film-controls-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(transparent, rgba(8, 8, 7, 0.85));
+            z-index: 5;
+        }
+
+        .film-sound-btn {
+            background: rgba(18, 18, 16, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--w);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 9px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            transition: .3s;
+        }
+
+        .film-sound-btn:hover {
+            border-color: var(--g);
+            color: var(--g);
+        }
+
+        .film-badge {
+            font-size: 9px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--g);
+            background: rgba(8, 8, 7, 0.7);
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .film-meta {
+            padding: 24px 28px;
+            background: #121210;
+        }
+
+        .film-meta .ey {
+            margin-bottom: 8px;
+        }
+
+        .film-meta h3 {
+            font-size: 24px;
+            margin: 0 0 10px;
+            color: var(--w);
+        }
+
+        .film-meta p {
+            font-size: 13px;
+            color: var(--s);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Testimonials Section Upgrade */
         .testimonials {
-            background: #c8c1b6;
-            color: #171613;
+            background: #10100e;
+            color: var(--w);
             min-height: 80vh;
             display: flex;
-            align-items: center
+            align-items: center;
+            border-top: 1px solid var(--l);
+            border-bottom: 1px solid var(--l);
+            padding: 12vh 7vw;
         }
 
         .testimonials .ey {
-            color: #745d3b
+            color: var(--g);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 7vw;
+            align-items: center;
+            width: 100%;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .testimonial-video-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #080807;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            aspect-ratio: 9 / 15;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            transition: border-color .3s, transform .3s ease;
+        }
+
+        .testimonial-video-card:hover {
+            border-color: var(--g);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-video-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testimonial-video-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 22px;
+            background: linear-gradient(180deg, rgba(8,8,7,0.65) 0%, transparent 35%, rgba(8,8,7,0.85) 100%);
+            transition: opacity .3s;
+            pointer-events: none;
+        }
+
+        .testimonial-video-card.is-playing .testimonial-video-overlay {
+            background: linear-gradient(180deg, transparent 70%, rgba(8,8,7,0.8) 100%);
+        }
+
+        .testimonial-video-badge {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(18, 18, 16, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            color: var(--g);
+            font-size: 9px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .testimonial-video-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #e53e3e;
+            box-shadow: 0 0 8px #e53e3e;
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
+
+        .testimonial-video-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: auto;
+        }
+
+        .testimonial-play-btn {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: rgba(18, 18, 16, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--g);
+            color: var(--g);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .testimonial-video-card:hover .testimonial-play-btn {
+            transform: scale(1.1);
+            background: var(--g);
+            color: #080807;
+        }
+
+        .testimonial-video-card.is-playing .testimonial-play-btn {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .testimonial-video-card:hover.is-playing .testimonial-play-btn {
+            opacity: 0.85;
+            pointer-events: auto;
+        }
+
+        .testimonial-video-bottom {
+            pointer-events: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .testimonial-mute-btn {
+            background: rgba(18, 18, 16, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 9px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .testimonial-mute-btn:hover {
+            border-color: var(--g);
+            color: var(--g);
+        }
+
+        .testimonial-quote-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .quote {
-            font: clamp(38px, 6vw, 94px)/1.02 Georgia, serif;
-            letter-spacing: -.05em;
-            max-width: 1200px;
-            margin: 35px 0
+            font: clamp(28px, 4.2vw, 56px)/1.2 'Cinzel', Georgia, serif;
+            letter-spacing: -.03em;
+            max-width: 820px;
+            margin: 24px 0 20px;
+            color: var(--w);
         }
 
         .quote-by {
-            font-size: 10px;
-            letter-spacing: .16em;
-            text-transform: uppercase
+            font-size: 11px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--g);
+            margin-top: 10px;
         }
 
         .dots {
             display: flex;
-            gap: 8px;
-            margin-top: 35px
+            gap: 10px;
+            margin-top: 35px;
         }
 
         .dot {
-            width: 30px;
+            width: 32px;
             height: 2px;
-            background: #17161333;
+            background: rgba(255, 255, 255, 0.2);
             border: 0;
-            padding: 0
+            padding: 0;
+            transition: background .3s, width .3s;
         }
 
         .dot.active {
-            background: #a48450
+            background: var(--g);
+            width: 48px;
+        }
+
+        @media (max-width: 960px) {
+            .films-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .testimonial-video-card {
+                max-width: 360px;
+                margin: 0 auto;
+            }
         }
 
         .contact {
@@ -1285,14 +1663,22 @@
         .line-inner {
             display: inline-block;
             opacity: 0;
-            transform: translateY(35px);
-            will-change: transform, opacity
+            transform: translateY(28px);
+            will-change: transform, opacity;
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .pre-reveal {
             opacity: 0;
-            transform: translateY(46px);
-            will-change: transform, opacity
+            transform: translateY(32px);
+            will-change: transform, opacity;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pre-reveal.revealed,
+        .line-inner.revealed {
+            opacity: 1 !important;
+            transform: none !important;
         }
 
         .loader {
@@ -1406,7 +1792,7 @@
     <nav class="nav" id="nav"><a class="brand" href="#home" aria-label="INOVO Home"><img src="./images/logo/logo.svg"
                 alt="INOVO Logo" class="brand-logo"><span>INOVO</span></a>
         <div class="links"><a href="#about">About</a><a href="#services">Services</a><a
-                href="#portfolio">Portfolio</a><a href="#team">Team</a><a href="#stories">Stories</a><a
+                href="#portfolio">Portfolio</a><a href="#films">Films</a><a href="#team">Team</a><a href="#stories">Stories</a><a
                 href="#contact">Contact</a></div><a class="cta magnetic" href="#contact">Start a Project</a><button
             class="menu magnetic">MENU</button>
     </nav>
@@ -1485,7 +1871,7 @@
                 <div class="ey">Selected Work</div>
                 <h2 class="title split">Enter the<br>architecture.</h2>
             </div>
-            <div class="ey">10 project experiences</div>
+            <div class="ey">8 project experiences</div>
         </div>
         <div class="portfolio-filters" id="portfolioFilters">
             <button class="filter-btn active" data-filter="all">All Works</button>
@@ -1495,6 +1881,52 @@
         </div>
         <div id="works"></div>
     </section>
+    <section class="section films-section reveal" id="films">
+        <div class="films-header">
+            <div>
+                <div class="ey">Motion & Architecture</div>
+                <h2 class="title split">Cinematic<br>Walkthroughs.</h2>
+            </div>
+            <div class="ey">2 Project Film Experiences</div>
+        </div>
+        <div class="films-grid">
+            <div class="film-card pre-reveal" id="filmCard1">
+                <div class="film-video-container" onclick="toggleFilmPlayback('film1', 'filmCard1')">
+                    <video id="film1" class="film-video" src="./images/our projects/project_reel_1.mp4" poster="./images/our projects/project_reel_1_poster.jpg" playsinline loop preload="metadata"></video>
+                    <div class="film-play-overlay">
+                        <button class="film-play-btn magnetic" aria-label="Play Video">▶</button>
+                    </div>
+                    <div class="film-controls-bar">
+                        <span class="film-badge">01 · WAYANAD</span>
+                        <button class="film-sound-btn magnetic" onclick="event.stopPropagation(); toggleSound('film1', this)">SOUND ON</button>
+                    </div>
+                </div>
+                <div class="film-meta">
+                    <div class="ey">CONTEMPORARY RESIDENCE</div>
+                    <h3>VELORA WALKTHROUGH</h3>
+                    <p>Experience the seamless fluid connection between natural forest topography, open-sky courtyards, and luxury modern interiors.</p>
+                </div>
+            </div>
+
+            <div class="film-card pre-reveal" id="filmCard2">
+                <div class="film-video-container" onclick="toggleFilmPlayback('film2', 'filmCard2')">
+                    <video id="film2" class="film-video" src="./images/our projects/project_reel_2.mp4" poster="./images/our projects/project_reel_2_poster.jpg" playsinline loop preload="metadata"></video>
+                    <div class="film-play-overlay">
+                        <button class="film-play-btn magnetic" aria-label="Play Video">▶</button>
+                    </div>
+                    <div class="film-controls-bar">
+                        <span class="film-badge">02 · EDAPPAL</span>
+                        <button class="film-sound-btn magnetic" onclick="event.stopPropagation(); toggleSound('film2', this)">SOUND ON</button>
+                    </div>
+                </div>
+                <div class="film-meta">
+                    <div class="ey">HERITAGE ESTATE</div>
+                    <h3>ANVAYA ARCHITECTURAL REEL</h3>
+                    <p>A journey through double-height courtyard volumes, crafted teak carpentry, and warm ambient light transitions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="section reveal" id="team">
         <div class="ey">The Studio</div>
         <h2 class="title split">The minds behind<br>the spaces.</h2>
@@ -1503,11 +1935,26 @@
         <div class="team" id="teamGrid"></div>
     </section>
     <section class="section testimonials reveal" id="stories">
-        <div>
-            <div class="ey">Client Stories</div>
-            <div class="quote" id="quote"></div>
-            <div class="quote-by" id="quoteBy"></div>
-            <div class="dots" id="dots"></div>
+        <div class="testimonial-grid">
+            <div class="testimonial-video-card pre-reveal" id="testimonialCard" onclick="toggleTestimonialVideo()">
+                <video id="testimonialVideo" src="./images/testimonials/testimonial.mp4" poster="./images/testimonials/testimonial_poster.jpg" playsinline loop preload="metadata"></video>
+                <div class="testimonial-video-overlay">
+                    <div class="testimonial-video-badge">Client Experience Video</div>
+                    <div class="testimonial-video-center">
+                        <button class="testimonial-play-btn magnetic" id="testimonialPlayBtn" aria-label="Play Testimonial Video">▶</button>
+                    </div>
+                    <div class="testimonial-video-bottom">
+                        <span class="ey" style="color:var(--w);font-size:8px;">38s · INOVO LIVING EXPERIENCE</span>
+                        <button class="testimonial-mute-btn magnetic" id="testimonialMuteBtn" onclick="event.stopPropagation(); toggleTestimonialSound(this)">UNMUTE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-quote-box pre-reveal">
+                <div class="ey">Client Stories</div>
+                <div class="quote" id="quote"></div>
+                <div class="quote-by" id="quoteBy"></div>
+                <div class="dots" id="dots"></div>
+            </div>
         </div>
     </section>
     <section class="section contact reveal" id="contact">
@@ -1545,52 +1992,70 @@
     <script>
         const heroData = [
             {
-                title: 'KALISTA',
-                subtitle: 'Spaces beyond expectation.',
-                tag: '01 · RESIDENTIAL ARCHITECTURE · KOZHIKODE',
-                desc: 'Contemporary villa architecture designed around movement, light, shadow and open courtyard living.',
-                img: './images/KALISTA.png',
-                projectIndex: 0
+                title: 'VELORA',
+                subtitle: 'Modern and premium architecture.',
+                tag: '01 · CONTEMPORARY VILLA · WAYANAD',
+                desc: 'Contemporary architectural geometry engineered with sleek glass envelopes, seamless indoor-outdoor transitions, and elevated luxury living.',
+                img: './images/VELORA/DSC00276 copy.webp',
+                projectIndex: 0,
+                hasVideo: true
             },
             {
-                title: 'QASRE E IMARA',
-                subtitle: 'Grandeur in simple lines.',
-                tag: '02 · LUXURY RESIDENCE · EDAPPAL',
-                desc: 'A harmonious balance of modern scale, monolithic forms, and warm ambient light.',
-                img: './images/Faisal edappal.png',
+                title: 'ZAHRA',
+                subtitle: 'Refined interior craftsmanship.',
+                tag: '02 · LUXURY INTERIORS · CALICUT',
+                desc: 'An exquisite expression of graceful proportions, curated material tactility, bespoke fluted detailing, and poetic ambient light.',
+                img: './images/ZAHRA/07.webp',
                 projectIndex: 1
             },
             {
-                title: 'HARSHAM',
-                subtitle: 'Framed by nature.',
-                tag: '03 · TROPICAL ESTATE · WAYANAD',
-                desc: 'Architecture that breathes, connecting indoor sanctuary seamlessly with lush green landscapes.',
-                img: './images/Navas wayanad.png',
+                title: 'AURELIA',
+                subtitle: 'Luxurious and sophisticated.',
+                tag: '03 · LUXURY RESIDENCE · KOZHIKODE',
+                desc: 'Sophisticated villa architecture crafted with sculpted monolithic volumes, private internal courtyards, and bespoke finishes.',
+                img: './images/AURELIA/ai (4).webp',
                 projectIndex: 2
             },
             {
-                title: 'INAAYATH',
-                subtitle: 'Light, shadow & texture.',
-                tag: '04 · COURTYARD RESIDENCE · KERALA',
-                desc: 'Refined spatial proportions enriched with natural materials and bespoke interior craft.',
-                img: './images/courtyard.png',
-                projectIndex: 3
+                title: 'ANVAYA',
+                subtitle: 'Connection, family, lineage.',
+                tag: '04 · HERITAGE ESTATE · EDAPPAL',
+                desc: 'A timeless family sanctuary designed around communal warmth, shaded verandas, central courtyards, and enduring architectural heritage.',
+                img: './images/Faisal edappal.webp',
+                projectIndex: 3,
+                hasVideo: true
             },
             {
-                title: 'MANNAT',
-                subtitle: 'Effortless luxury living.',
-                tag: '05 · REFINED INTERIORS · CALICUT',
-                desc: 'Understated spatial elegance designed for peaceful daily living with open glass facades.',
-                img: './images/living.png',
+                title: 'NIVARA',
+                subtitle: 'Elegant, calm, residential feel.',
+                tag: '05 · COURTYARD RESIDENCE · KERALA',
+                desc: 'Understated spatial elegance and quiet sanctuary designed for peaceful daily living with open garden courtyards and breeze corridors.',
+                img: './images/nivara/ai (10).webp',
                 projectIndex: 4
             },
             {
-                title: 'AHAM',
-                subtitle: 'Built for timelessness.',
-                tag: '06 · COMMERCIAL & LANDMARK',
-                desc: 'Iconic architectural presence engineered with precision, spatial clarity and sculptural form.',
-                img: './images/Amer calicut.png',
+                title: 'AYANA',
+                subtitle: 'Graceful, contemporary.',
+                tag: '06 · CONTEMPORARY LIVING · MALAPPURAM',
+                desc: 'Effortlessly balanced architecture featuring soft transitions, rich natural wood textures, and warm biophilic materiality.',
+                img: './images/AYANA/ai (17).webp',
+                projectIndex: 5
+            },
+            {
+                title: 'AARADHYA',
+                subtitle: 'Growth and elevation.',
+                tag: '07 · MULTI-TIER ESTATE · COCHIN',
+                desc: 'Dynamic tiered volumes and vertical soaring spaces engineered with structural precision, spatial clarity and iconic form.',
+                img: './images/AARADHYA/ai (14).webp',
                 projectIndex: 6
+            },
+            {
+                title: 'ALMIRA',
+                subtitle: 'Royal and luxurious.',
+                tag: '08 · PALATIAL ESTATE · CALICUT',
+                desc: 'Monumental presence and royal grandeur composed with timeless masonry, private colonnades, and opulent living spaces.',
+                img: './images/ALMIRA/ai.webp',
+                projectIndex: 7
             }
         ];
 
@@ -1619,6 +2084,11 @@
                             <button class="hero-cta magnetic" onclick="openProject(${s.projectIndex})">
                                 <span>EXPLORE SPATIAL EXPERIENCE →</span>
                             </button>
+                            ${s.hasVideo ? `
+                                <button class="hero-cta-video magnetic" onclick="location.href='#films'">
+                                    <span>WATCH FILM ▶</span>
+                                </button>
+                            ` : ''}
                         </div>
                     </div>
                 </div>
@@ -1666,6 +2136,14 @@
             if (nextSlide) nextSlide.classList.add('active');
 
             thumbs.forEach((t, i) => t.classList.toggle('active', i === index));
+            
+            // Scroll thumbs bar horizontally WITHOUT scrolling the page window
+            const thumbsBar = document.getElementById('heroThumbs');
+            if (thumbsBar && thumbs[index]) {
+                const activeThumb = thumbs[index];
+                const scrollPos = activeThumb.offsetLeft - (thumbsBar.clientWidth / 2) + (activeThumb.clientWidth / 2);
+                thumbsBar.scrollTo({ left: Math.max(0, scrollPos), behavior: 'smooth' });
+            }
 
             heroIndex = index;
             document.getElementById('heroCurr').textContent = String(heroIndex + 1).padStart(2, '0');
@@ -1682,29 +2160,159 @@
 
             let startTime = Date.now();
             progressTimer = setInterval(() => {
-                let elapsed = Date.now() - startTime;
-                let pct = Math.min(100, (elapsed / SLIDE_DURATION) * 100);
-                if (fill) fill.style.width = pct + '%';
+                // Only update progress fill if hero is currently in viewport
+                if (window.scrollY < window.innerHeight * 0.8) {
+                    let elapsed = Date.now() - startTime;
+                    let pct = Math.min(100, (elapsed / SLIDE_DURATION) * 100);
+                    if (fill) fill.style.width = pct + '%';
+                }
             }, 50);
 
             heroTimer = setInterval(() => {
-                goToHeroSlide((heroIndex + 1) % heroData.length);
+                // Auto-advance ONLY if user is viewing hero section
+                if (window.scrollY < window.innerHeight * 0.75) {
+                    goToHeroSlide((heroIndex + 1) % heroData.length);
+                }
             }, SLIDE_DURATION);
         }
 
-        imgs = ['./images/KALISTA.png', './images/Navas wayanad.png', './images/Faisal edappal.png', './images/courtyard.png', './images/living.png', './images/dining.png', './images/KALISTA (2).png', './images/Navas wayanad (2).png', './images/courtyard (2).png', './images/living (2).png'];
-        projects = ['DHWANI', 'QASRE E IMARA', 'HARSHAM', 'INAAYATH', 'MANNAT', 'ASTHAH', 'AHAM', 'NILA', 'PORTICO', 'WAYSIDE'];
-        const categories = ['residential', 'interiors', 'residential', 'interiors', 'residential', 'residential', 'hospitality', 'interiors', 'hospitality', 'residential'];
+        const projectsData = [
+            {
+                title: 'VELORA',
+                subtitle: 'Modern & Premium Architecture',
+                category: 'residential',
+                categoryLabel: 'Contemporary Villa · Wayanad',
+                cover: './images/VELORA/DSC00276 copy.webp',
+                video: './images/our projects/project_reel_1.mp4',
+                videoPoster: './images/our projects/project_reel_1_poster.jpg',
+                desc: 'Contemporary architectural geometry engineered with sleek glass envelopes, seamless transitions, and elevated luxury.',
+                scenes: [
+                    ['APPROACH', 'The first impression.', 'The journey begins through the landscape, where monolithic stone and warm timber define the approach.', './images/VELORA/DSC00276 copy.webp'],
+                    ['ARRIVAL', 'The pause before entry.', 'Movement slows at the grand entrance. Natural light filters through soaring double-height volumes.', './images/VELORA/DSC00080 copy.webp'],
+                    ['THRESHOLD', 'Between outside and in.', 'A seamless glass threshold dissolves the boundary between lush landscape and interior sanctuary.', './images/VELORA/DSC00123 copy.webp'],
+                    ['LIVING VOLUME', 'The heart of the space.', 'Sculpted ceiling planes and bespoke furnishings bathed in expansive daylight.', './images/VELORA/DSC00185 copy.webp'],
+                    ['CULINARY & DINING', 'Materiality in harmony.', 'Warm timber cabinetry and monolithic stone islands crafted for gathering and intimacy.', './images/VELORA/DSC00192 copy.webp'],
+                    ['PRIVATE SANCTUARY', 'Quiet refinement.', 'Master suite retreat oriented toward private landscape vistas and serene light.', './images/VELORA/DSC00260 copy.webp'],
+                    ['NIGHT PRESENCE', 'A second identity.', 'Architectural illumination transforms the villa into a glowing sculptural presence.', './images/VELORA/DSC00374 copy.webp']
+                ]
+            },
+            {
+                title: 'ZAHRA',
+                subtitle: 'Refined Luxury Interiors',
+                category: 'interiors',
+                categoryLabel: 'Refined Interiors · Calicut',
+                cover: './images/ZAHRA/07.webp',
+                desc: 'An exquisite expression of graceful proportions, curated interior craftsmanship, and poetic light play.',
+                scenes: [
+                    ['GRAND SALON', 'Proportion & poise.', 'Sculptural seating and layered textures form an intimate yet expansive gathering space.', './images/ZAHRA/07.webp'],
+                    ['FOYER & ARRIVAL', 'The greeting of texture.', 'Warm neutral tones, tactile wall finishes, and ambient illumination frame the entrance.', './images/ZAHRA/01 copy.webp'],
+                    ['LIVING SANCTUARY', 'Elegance in repose.', 'Generous volumes articulated with custom lounge furniture and soft natural tones.', './images/ZAHRA/05.webp'],
+                    ['MATERIAL DETAIL', 'Crafted to be felt.', 'Precision fluting, brushed bronze accents, and hand-selected natural stones.', './images/ZAHRA/03.webp'],
+                    ['DINING AMBIENCE', 'Illuminated elegance.', 'Custom pendant lighting and bespoke table ensemble designed for elevated hospitality.', './images/ZAHRA/04.webp'],
+                    ['MASTER SUITE', 'Restorative sanctuary.', 'Soft textiles, concealed architectural lighting, and bespoke joinery.', './images/ZAHRA/06.webp'],
+                    ['EVENING MOOD', 'Subtle luminance.', 'Low-glare warm lighting reveals rich depth and shadow play across every corner.', './images/ZAHRA/10.webp']
+                ]
+            },
+            {
+                title: 'AURELIA',
+                subtitle: 'Luxurious & Sophisticated',
+                category: 'residential',
+                categoryLabel: 'Luxury Residence · Kozhikode',
+                cover: './images/AURELIA/ai (4).webp',
+                desc: 'Sophisticated villa architecture crafted with sculpted volumes, monolithic elegance, and bespoke luxury finishes.',
+                scenes: [
+                    ['ELEVATION', 'Sculpted massing.', 'Bold architectural volumes articulated with cantilevered planes and deep reveals.', './images/AURELIA/ai (4).webp'],
+                    ['COURTYARD ARRIVAL', 'Nature embraced.', 'Open-to-sky courtyard creating cross-ventilation and natural daylight channels.', './images/AURELIA/ai (3).webp'],
+                    ['INTERIOR REVEAL', 'Volume and light.', 'Double-height living environment opening directly to private gardens.', './images/AURELIA/ai (5).webp'],
+                    ['EVENING PERSPECTIVE', 'Timeless glow.', 'Illuminated facade elements highlighting tectonic purity.', './images/AURELIA/ai (6).webp']
+                ]
+            },
+            {
+                title: 'ANVAYA',
+                subtitle: 'Heritage & Lineage',
+                category: 'residential',
+                categoryLabel: 'Heritage Estate · Edappal',
+                cover: './images/Faisal edappal.webp',
+                video: './images/our projects/project_reel_2.mp4',
+                videoPoster: './images/our projects/project_reel_2_poster.jpg',
+                desc: 'A timeless family sanctuary designed around communal warmth, courtyards, and enduring architectural heritage.',
+                scenes: [
+                    ['HERITAGE ARRIVAL', 'Roots & memory.', 'Traditional proportions reimagined through contemporary precision and craftsmanship.', './images/Faisal edappal.webp'],
+                    ['CENTRAL COURTYARD', 'Gathering space.', 'Courtyard designed for intergenerational connection and celebration.', './images/courtyard.webp'],
+                    ['LIVING SANCTUARY', 'Warmth of timber.', 'Exposed teak beams, brass hardware, and hand-finished lime plaster.', './images/living.webp'],
+                    ['DINING HALL', 'Feast of light.', 'Spacious dining atmosphere facing shaded internal gardens.', './images/dining.webp'],
+                    ['TWILIGHT GLOW', 'Enduring legacy.', 'Warm golden lighting casting welcoming silhouettes across the estate.', './images/KALISTA.webp']
+                ]
+            },
+            {
+                title: 'NIVARA',
+                subtitle: 'Calm & Courtyard Living',
+                category: 'residential',
+                categoryLabel: 'Courtyard Residence · Kerala',
+                cover: './images/nivara/ai (10).webp',
+                desc: 'Understated spatial elegance and quiet sanctuary designed for peaceful daily living with open garden courtyards.',
+                scenes: [
+                    ['COURTYARD CORE', 'The living heart.', 'A central open-to-sky courtyard drawing rain, sun and breeze into the home.', './images/nivara/ai (10).webp'],
+                    ['CORRIDOR OF LIGHT', 'Circulation as experience.', 'Glazed walkways overlooking landscaped water features and flora.', './images/nivara/ai (7).webp'],
+                    ['SHADED PORCH', 'Traditional repose.', 'Modern interpretation of Kerala verandas providing natural thermal cooling.', './images/nivara/ai (8).webp'],
+                    ['GARDEN INTEGRATION', 'Biophilic harmony.', 'Lush native landscaping woven into every interior line of sight.', './images/nivara/ai (9).webp'],
+                    ['EVENING SERENITY', 'Peaceful retreat.', 'Gentle water reflections and ambient lanterns creating meditative peace.', './images/nivara/ai (11).webp']
+                ]
+            },
+            {
+                title: 'AYANA',
+                subtitle: 'Contemporary Living',
+                category: 'residential',
+                categoryLabel: 'Contemporary Living · Malappuram',
+                cover: './images/AYANA/ai (17).webp',
+                desc: 'Effortlessly balanced architecture featuring soft transitions, subtle textures, and warm natural materiality.',
+                scenes: [
+                    ['FACADE COMPOSITION', 'Harmonious geometry.', 'Clean horizontal bands balanced with warm vertical timber accents.', './images/AYANA/ai (17).webp'],
+                    ['ENTRY FOYER', 'Light-filled welcoming.', 'Filtered sunlight through architectural screens casting rhythmic shadows.', './images/AYANA/ai (15).webp'],
+                    ['LIVING VERANDA', 'Inside-outside fluidity.', 'Full-height sliding systems uniting living areas with the garden.', './images/AYANA/ai (16).webp'],
+                    ['DINING EXPERIENCE', 'Serene fellowship.', 'Framed views of internal greenery from the core dining volume.', './images/AYANA/ai (18).webp'],
+                    ['UPPER RETREAT', 'Elevated perspective.', 'Private family lounge connecting to sky terraces.', './images/AYANA/ai (19).webp'],
+                    ['NIGHT ELEVATION', 'Warm sanctuary.', 'Subtle uplighting emphasizing structural textures against the night sky.', './images/AYANA/ai (20).webp']
+                ]
+            },
+            {
+                title: 'AARADHYA',
+                subtitle: 'Multi-Tiered Elevation',
+                category: 'hospitality',
+                categoryLabel: 'Multi-Tier Estate · Cochin',
+                cover: './images/AARADHYA/ai (14).webp',
+                desc: 'Dynamic tiered volumes and vertical soaring spaces engineered with precision, spatial clarity and iconic form.',
+                scenes: [
+                    ['TIERED MASSING', 'Vertical expression.', 'Step-terraced architectural forms creating dynamic private sky gardens.', './images/AARADHYA/ai (14).webp'],
+                    ['ARRIVAL PLAZA', 'Framed approach.', 'Water features and architectural canopy welcoming guests into the estate.', './images/AARADHYA/ai (13).webp'],
+                    ['PANORAMIC TERRACE', 'Skyward views.', 'Expansive observation deck capturing lush vistas and coastal breezes.', './images/AARADHYA/ai (12).webp']
+                ]
+            },
+            {
+                title: 'ALMIRA',
+                subtitle: 'Palatial Grandeur',
+                category: 'residential',
+                categoryLabel: 'Palatial Estate · Calicut',
+                cover: './images/ALMIRA/ai.webp',
+                desc: 'Monumental presence and royal grandeur composed with timeless masonry, private courtyards, and opulent spaces.',
+                scenes: [
+                    ['MONUMENTAL ARRIVAL', 'Grand proportions.', 'A majestic entry statement designed with symmetrical grace and stone massing.', './images/ALMIRA/ai.webp'],
+                    ['COLONNADE & LIGHT', 'Rhythm of shade.', 'Deep covered verandas offering climatic shelter and grand spatial progression.', './images/ALMIRA/ai (1).webp'],
+                    ['ESTATE GROUNDS', 'Architecture within parkland.', 'A grand residence nestled within meticulously landscaped gardens.', './images/ALMIRA/ai (2).webp']
+                ]
+            }
+        ];
 
         function renderPortfolio() {
             const worksEl = document.getElementById('works');
             if (!worksEl) return;
-            worksEl.innerHTML = projects.map((p, i) => `
-                <article class="work pre-reveal" data-category="${categories[i]}" onclick="openProject(${i})">
-                    <img src="${imgs[i]}" alt="${p}">
+            worksEl.innerHTML = projectsData.map((p, i) => `
+                <article class="work pre-reveal" data-category="${p.category}" onclick="openProject(${i})">
+                    <img src="${p.cover}" alt="${p.title}" loading="lazy">
                     <div class="work-copy">
-                        <div class="ey">PROJECT ${String(i + 1).padStart(2, '0')} · ${categories[i].toUpperCase()}</div>
-                        <h3 class="split">${p}</h3>
+                        <div class="ey">PROJECT ${String(i + 1).padStart(2, '0')} · ${p.categoryLabel.toUpperCase()}</div>
+                        <h3>${p.title}</h3>
+                        ${p.video ? `<div class="work-video-tag"><span>▶</span> MOTION FILM AVAILABLE</div>` : ''}
                         <div class="ey">ENTER THE SPACE</div>
                     </div>
                     <button class="enter magnetic">ENTER →</button>
@@ -1735,22 +2343,149 @@
 
         renderPortfolio();
         initHeroShowcase();
+
         const team = [
-            ['Noufal Muhammed', 'Architect / Design Leadership', './images/member-1.jpeg', '“The strongest architecture begins with understanding how a space should feel.”'],
-            ['Firas MP', 'Architect / Design Partner', './images/member-2.jpeg', '“Design is the relationship between proportion, purpose and experience.”']
+            ['Noufal Muhammed', 'Architect / Design Leadership', './images/members/WhatsApp Image 2026-08-21 at 11.26.00.webp', '“The strongest architecture begins with understanding how a space should feel.”'],
+            ['Firas MP', 'Architect / Design Partner', './images/members/WhatsApp Image 2026-08-21 at 11.27.12.webp', '“Design is the relationship between proportion, purpose and experience.”']
         ];
         document.getElementById('teamGrid').innerHTML = team.map(x => `<div class="person pre-reveal" style="background-image:url('${x[2]}')"><span class="role">${x[1]}</span><h3>${x[0]}</h3><p>${x[3]}</p></div>`).join('');
-        const testimonials = [['“INOVO understood how we wanted to live before we knew how to explain it.”', 'PRIVATE RESIDENTIAL CLIENT · KOZHIKODE'], ['“The process felt considered from the first conversation through to the smallest details.”', 'PROJECT CLIENT · KERALA'], ['“What we received was more than a finished space. It changed how we experience our home.”', 'PRIVATE CLIENT · KERALA']];
-        let qi = 0; function renderQuote() { quote.textContent = testimonials[qi][0]; quoteBy.textContent = testimonials[qi][1]; dots.innerHTML = testimonials.map((_, i) => `<button class="dot magnetic ${i === qi ? 'active' : ''}" onclick="qi=${i};renderQuote()"></button>`).join('') } renderQuote(); setInterval(() => { qi = (qi + 1) % testimonials.length; renderQuote() }, 6500);
-        function openProject(i) {
-            const p = projects[i]; const scenes = [['APPROACH', 'The first impression.', 'The journey begins before the front door. Architecture emerges gradually through landscape, massing and shadow.', imgs[i]], ['ARRIVAL', 'The pause before entry.', 'Movement slows. Scale becomes more intimate. Material and light begin to define the experience.', imgs[(i + 2) % 10]], ['THRESHOLD', 'Between outside and in.', 'A moment of compression creates anticipation before the interior reveals itself.', imgs[(i + 3) % 10]], ['REVEAL', 'The heart of the space.', 'Volume, proportion and light come together in a moment of release.', imgs[(i + 4) % 10]], ['MATERIALITY', 'Designed to be felt.', 'Move across the surface and discover detail. Luxury is often experienced through what you touch.', imgs[(i + 5) % 10]], ['LANDSCAPE', 'A room without walls.', 'Architecture and nature are treated as one continuous environment.', imgs[(i + 7) % 10]], ['NIGHT', 'A second identity.', 'As daylight disappears, light redraws the architecture and the atmosphere changes completely.', imgs[(i + 8) % 10]]];
-            journey.innerHTML = `<section class="journey-hero" style="background-image:url('${imgs[i]}')"><div class="journey-title"><div class="ey">INOVO SPATIAL EXPERIENCE · PROJECT ${String(i + 1).padStart(2, '0')}</div><h1 class="split">${p}</h1><p style="color:var(--s);max-width:430px;line-height:1.7">A guided journey through movement, threshold, material and atmosphere.</p></div></section><div class="mode"><button>GUIDED JOURNEY</button><button onclick="free.classList.toggle('open')">EXPLORE FREELY</button><div class="light" id="light"></div></div>${scenes.map((s, k) => `<section class="chapter" id="chapter${k}"><div class="scene pre-reveal ${s[0] === 'MATERIALITY' ? 'material' : ''}" style="background-image:url('${s[3]}')">${s[0] === 'MATERIALITY' ? '<div class="lens"></div>' : ''}</div><div class="chapter-copy pre-reveal"><div class="ey">${String(k + 1).padStart(2, '0')} — ${s[0]}</div><h2 class="split">${s[1]}</h2><p>${s[2]}</p>${s[0] === 'REVEAL' ? '<div class="times"><button class="active" onclick="time(this,1.1)">MORNING</button><button onclick="time(this,.9)">AFTERNOON</button><button onclick="time(this,.55)">EVENING</button></div>' : ''}</div></section>`).join('')}<section class="final" style="background-image:url('${imgs[(i + 9) % 10]}')"><div><div class="ey">INOVO</div><h2 class="split">Some spaces are seen.<br>Others are remembered.</h2><button class="back magnetic" onclick="closeProject()">RETURN TO INOVO</button></div></section>`;
-            free.innerHTML = scenes.map((s, k) => `<a href="#chapter${k}" onclick="free.classList.remove('open')">${String(k + 1).padStart(2, '0')} · ${s[0]}</a>`).join(''); modal.classList.add('open'); document.body.style.overflow = 'hidden'; modal.scrollTop = 0; setTimeout(bindJourney, 100); setTimeout(function () { if (window.onJourneyOpen) window.onJourneyOpen() }, 110)
+
+        const testimonials = [
+            ['“INOVO understood how we wanted to live before we knew how to explain it. The light and flow in our home is magical.”', 'PRIVATE RESIDENTIAL CLIENT · KOZHIKODE'],
+            ['“The design process felt deeply considered from the first sketch through to the smallest materiality details.”', 'PROJECT CLIENT · KERALA'],
+            ['“What we received was far more than a finished space. It completely elevated how our family experiences everyday living.”', 'PRIVATE CLIENT · WAYANAD']
+        ];
+        let qi = 0;
+        function renderQuote() {
+            const quoteEl = document.getElementById('quote');
+            const quoteByEl = document.getElementById('quoteBy');
+            const dotsEl = document.getElementById('dots');
+            if (quoteEl && quoteByEl) {
+                quoteEl.textContent = testimonials[qi][0];
+                quoteByEl.textContent = testimonials[qi][1];
+            }
+            if (dotsEl) {
+                dotsEl.innerHTML = testimonials.map((_, i) => `<button class="dot magnetic ${i === qi ? 'active' : ''}" onclick="qi=${i};renderQuote()"></button>`).join('');
+            }
         }
-        function closeProject() { modal.classList.remove('open'); document.body.style.overflow = 'auto'; free.classList.remove('open') }
+        renderQuote();
+        setInterval(() => { qi = (qi + 1) % testimonials.length; renderQuote() }, 6500);
+
+        /* Video Controls Handlers */
+        function toggleFilmPlayback(videoId, cardId) {
+            const video = document.getElementById(videoId);
+            const card = document.getElementById(cardId);
+            if (!video || !card) return;
+            if (video.paused) {
+                video.play();
+                card.classList.add('is-playing');
+            } else {
+                video.pause();
+                card.classList.remove('is-playing');
+            }
+        }
+
+        function toggleSound(videoId, btn) {
+            const video = document.getElementById(videoId);
+            if (!video) return;
+            video.muted = !video.muted;
+            btn.textContent = video.muted ? 'SOUND ON' : 'MUTE';
+        }
+
+        function toggleTestimonialVideo() {
+            const video = document.getElementById('testimonialVideo');
+            const card = document.getElementById('testimonialCard');
+            if (!video || !card) return;
+            if (video.paused) {
+                video.play();
+                card.classList.add('is-playing');
+            } else {
+                video.pause();
+                card.classList.remove('is-playing');
+            }
+        }
+
+        function toggleTestimonialSound(btn) {
+            const video = document.getElementById('testimonialVideo');
+            if (!video) return;
+            video.muted = !video.muted;
+            btn.textContent = video.muted ? 'UNMUTE' : 'MUTE';
+        }
+
+        function openProject(i) {
+            const p = projectsData[i];
+            const scenes = p.scenes;
+            const hasVideo = !!p.video;
+            
+            let videoChapterHtml = '';
+            if (hasVideo) {
+                videoChapterHtml = `
+                    <section class="chapter" id="chapter-video">
+                        <div class="scene pre-reveal" style="background:#080807;display:flex;align-items:center;justify-content:center;padding:20px;">
+                            <video src="${p.video}" poster="${p.videoPoster}" controls playsinline style="max-height:78vh;max-width:92%;border-radius:14px;box-shadow:0 16px 48px rgba(0,0,0,0.85);"></video>
+                        </div>
+                        <div class="chapter-copy pre-reveal">
+                            <div class="ey">00 — CINEMATIC WALKTHROUGH</div>
+                            <h2 class="split">Motion in Space</h2>
+                            <p>Experience the continuous flow, light shifts and architectural rhythm through live motion.</p>
+                        </div>
+                    </section>
+                `;
+            }
+
+            journey.innerHTML = `
+                <section class="journey-hero" style="background-image:url('${p.cover}')">
+                    <div class="journey-title">
+                        <div class="ey">INOVO SPATIAL EXPERIENCE · PROJECT ${String(i + 1).padStart(2, '0')}</div>
+                        <h1 class="split">${p.title}</h1>
+                        <p style="color:var(--s);max-width:460px;line-height:1.7">${p.desc}</p>
+                    </div>
+                </section>
+                <div class="mode">
+                    <button>GUIDED JOURNEY</button>
+                    <button onclick="free.classList.toggle('open')">EXPLORE FREELY</button>
+                    <div class="light" id="light"></div>
+                </div>
+                ${videoChapterHtml}
+                ${scenes.map((s, k) => `
+                    <section class="chapter" id="chapter${k}">
+                        <div class="scene pre-reveal ${s[0].includes('MATERIAL') ? 'material' : ''}" style="background-image:url('${s[3]}')">
+                            ${s[0].includes('MATERIAL') ? '<div class="lens"></div>' : ''}
+                        </div>
+                        <div class="chapter-copy pre-reveal">
+                            <div class="ey">${String(k + 1).padStart(2, '0')} — ${s[0]}</div>
+                            <h2 class="split">${s[1]}</h2>
+                            <p>${s[2]}</p>
+                            ${k === 1 ? '<div class="times"><button class="active" onclick="time(this,1.1)">MORNING</button><button onclick="time(this,.9)">AFTERNOON</button><button onclick="time(this,.55)">EVENING</button></div>' : ''}
+                        </div>
+                    </section>
+                `).join('')}
+                <section class="final" style="background-image:url('${scenes[scenes.length - 1][3]}')">
+                    <div>
+                        <div class="ey">INOVO</div>
+                        <h2 class="split">Some spaces are seen.<br>Others are remembered.</h2>
+                        <button class="back magnetic" onclick="closeProject()">RETURN TO INOVO</button>
+                    </div>
+                </section>
+            `;
+            free.innerHTML = (hasVideo ? '<a href="#chapter-video" onclick="free.classList.remove(\'open\')">00 · MOTION FILM</a>' : '') + scenes.map((s, k) => `<a href="#chapter${k}" onclick="free.classList.remove('open')">${String(k + 1).padStart(2, '0')} · ${s[0]}</a>`).join('');
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            modal.scrollTop = 0;
+            setTimeout(bindJourney, 100);
+            setTimeout(function () { if (window.onJourneyOpen) window.onJourneyOpen() }, 110);
+        }
+
+        function closeProject() { 
+            modal.classList.remove('open'); 
+            document.body.style.overflow = 'auto'; 
+            free.classList.remove('open');
+            modal.querySelectorAll('video').forEach(v => v.pause());
+        }
+
         function time(b, v) { b.parentElement.querySelectorAll('button').forEach(x => x.classList.remove('active')); b.classList.add('active'); b.closest('.chapter').querySelector('.scene').style.filter = `brightness(${v})` }
         function bindJourney() { modal.onscroll = () => { let cs = [...document.querySelectorAll('.chapter')], n = 0; cs.forEach((c, i) => { if (Math.abs(c.getBoundingClientRect().top) < innerHeight * .5) n = i }); let l = document.getElementById('light'); if (l) l.style.setProperty('--p', (n / (cs.length - 1) * 100) + '%') }; document.querySelectorAll('.material').forEach(el => el.onmousemove = e => { let r = el.getBoundingClientRect(), l = el.querySelector('.lens'); l.style.left = e.clientX - r.left + 'px'; l.style.top = e.clientY - r.top + 'px' }) }
-        document.addEventListener('mousemove', e => { if (innerWidth > 800) { let x = (e.clientX / innerWidth - .5) * 12, y = (e.clientY / innerHeight - .5) * 12; heroBg.style.transform = `translate(${x}px,${y}px) scale(1.06)` } });
+        document.addEventListener('mousemove', e => { if (innerWidth > 800) { let x = (e.clientX / innerWidth - .5) * 12, y = (e.clientY / innerHeight - .5) * 12; const heroBg = document.querySelector('.hero-slide.active .hero-slide-bg'); if (heroBg) heroBg.style.transform = `translate(${x}px,${y}px) scale(1.04)` } });
         addEventListener('scroll', () => { nav.classList.toggle('on', scrollY > 50); document.querySelectorAll('.reveal').forEach(x => { if (x.getBoundingClientRect().top < innerHeight * .88) x.classList.add('show') }) }, { passive: true }); dispatchEvent(new Event('scroll'));
     </script>
     <script>
@@ -1798,37 +2533,61 @@
                 }
                 window.addEventListener('scroll', updateProgress, { passive: true });
 
-                /* ---------- staggered fade-up reveals for repeated content ---------- */
-                var batchSelectors = ['.fact', '.year', '.service', '.work', '.person', '.contact-grid > div'];
-                batchSelectors.forEach(function (sel) {
-                    ScrollTrigger.batch(sel, {
-                        start: 'top 88%',
-                        once: true,
-                        onEnter: function (batch) {
-                            gsap.to(batch, { opacity: 1, y: 0, duration: reduced ? 0 : .9, ease: 'power3.out', stagger: reduced ? 0 : .12 });
-                        }
-                    });
-                });
-                gsap.utils.toArray('.about-image, .body, .chapter-copy, .scene').forEach(function (el) {
-                    ScrollTrigger.create({
-                        trigger: el, start: 'top 90%', once: true,
-                        onEnter: function () { gsap.to(el, { opacity: 1, y: 0, duration: reduced ? 0 : 1, ease: 'power3.out' }); }
-                    });
+                /* ---------- staggered fade-up reveals for all pre-reveal elements ---------- */
+                ScrollTrigger.batch('.pre-reveal', {
+                    start: 'top 92%',
+                    once: true,
+                    onEnter: function (batch) {
+                        gsap.to(batch, {
+                            opacity: 1,
+                            y: 0,
+                            duration: reduced ? 0 : .85,
+                            ease: 'power3.out',
+                            stagger: reduced ? 0 : .08,
+                            onComplete: function () {
+                                batch.forEach(function (el) { el.classList.add('revealed'); });
+                            }
+                        });
+                    }
                 });
 
                 /* scroll-triggered line reveals for section headings (not the hero, handled separately) */
                 document.querySelectorAll('.split').forEach(function (el) {
                     if (el.closest('.hero')) return;
+                    splitLines(el);
                     ScrollTrigger.create({
-                        trigger: el, start: 'top 85%', once: true,
+                        trigger: el, start: 'top 92%', once: true,
                         onEnter: function () { revealSplit(el); }
                     });
                 });
 
+                function checkVisibleElements() {
+                    document.querySelectorAll('.pre-reveal:not(.revealed)').forEach(function (el) {
+                        var rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+                            gsap.to(el, { opacity: 1, y: 0, duration: 0.6 });
+                            el.classList.add('revealed');
+                        }
+                    });
+                    document.querySelectorAll('.split').forEach(function (el) {
+                        var rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+                            revealSplit(el);
+                        }
+                    });
+                }
+                window.addEventListener('scroll', checkVisibleElements, { passive: true });
+
                 /* ---------- page load sequence ---------- */
                 var loader = document.getElementById('loader');
                 function heroIntro() {
-                    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+                    var tl = gsap.timeline({
+                        defaults: { ease: 'power3.out' },
+                        onComplete: function () {
+                            ScrollTrigger.refresh();
+                            checkVisibleElements();
+                        }
+                    });
                     tl.to('.nav', { y: 0, opacity: 1, duration: reduced ? 0 : .8 }, 0)
                         .to('.hero .ey', { opacity: 1, y: 0, duration: reduced ? 0 : .7 }, .15)
                         .add(function () { revealSplit(document.querySelector('.hero h1')); }, .3)
@@ -1844,7 +2603,14 @@
                         loader.style.display = 'none';
                         heroIntro();
                     } else {
-                        var lt = gsap.timeline({ onComplete: function () { loader.style.display = 'none'; heroIntro(); } });
+                        var lt = gsap.timeline({
+                            onComplete: function () {
+                                loader.style.display = 'none';
+                                heroIntro();
+                                ScrollTrigger.refresh();
+                                checkVisibleElements();
+                            }
+                        });
                         lt.to('.loader-logo, .loader span', { opacity: 1, letterSpacing: '.7em', duration: .7, ease: 'power2.out' })
                             .to('.loader-logo, .loader span', { opacity: 0, duration: .35, delay: .25 })
                             .to('.loader', { opacity: 0, duration: .5, ease: 'power2.inOut' }, '-=.1');
