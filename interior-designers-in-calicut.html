@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interior designers in calicut | INOVO Developers</title>
+    <meta name="description"
+        content="INOVO Developers is one of the Best Interior Designers in Calicut, offering luxury home interiors, modern designs, and commercial spaces.">
+    <meta name="keywords"
+        content="home interior designers in calicut, Interiors in calicut, Kitchen interior calicut, living room interior, living room design, living room interior design, best interior designers in calicut">
+    <link rel="canonical" href="https://inovodevelopers.com/interior-designers-in-calicut.html">
+
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="interior designers in calicut | INOVO Developers">
+    <meta property="og:description"
+        content="INOVO Developers is one of the Best Interior Designers in Calicut, offering luxury home interiors, modern designs, and commercial spaces.">
+    <meta property="og:image" content="./images/ZAHRA/07.webp">
+    <meta property="og:url" content="https://inovodevelopers.com/interior-designers-in-calicut.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="interior designers in calicut | INOVO Developers">
+    <meta name="twitter:description"
+        content="INOVO Developers is one of the Best Interior Designers in Calicut, offering luxury home interiors, modern designs, and commercial spaces.">
+    <meta name="twitter:image" content="./images/ZAHRA/07.webp">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InteriorDesignStudio",
+      "name": "INOVO Developers - Interior Designers in Calicut",
+      "url": "https://inovodevelopers.com/interior-designers-in-calicut.html",
+      "logo": "https://inovodevelopers.com/images/logo/logo.svg",
+      "image": "https://inovodevelopers.com/images/ZAHRA/07.webp",
+      "description": "INOVO Developers is one of the Best Interior Designers in Calicut, offering luxury home interiors, modern designs, and commercial spaces.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Calicut",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      },
+      "areaServed": ["Calicut", "Kozhikode", "Wayanad", "Malappuram", "Kerala"],
+      "priceRange": "$$$$"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://inovodevelopers.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About & Interior Designers",
+          "item": "https://inovodevelopers.com/interior-designers-in-calicut.html"
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is INOVO Developers recognized among the best interior designers in Calicut?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "INOVO Developers delivers integrated interior architecture, bespoke joinery, customized kitchen and living room interior design, and curated material tactility tailored to each client's unique lifestyle in Calicut and Kerala."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What interior design services do you offer in Calicut?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide complete interior design solutions including luxury home interiors, modular kitchen interior design, living room interior design, bespoke furniture design, architectural lighting, and 3D visualization."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --b: #080807;
+            --w: #f6f5f2;
+            --s: #9b9a95;
+            --g: #c5a059;
+            --g-glow: rgba(197, 160, 89, 0.28);
+            --l: #ffffff14;
+            --surface: #11110f;
+            --card-bg: #141412;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background: var(--b);
+            color: var(--w);
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+            line-height: 1.75;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 400;
+            letter-spacing: .02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Top Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--g);
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 6vw;
+            background: rgba(8, 8, 7, 0.78);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--l);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand img {
+            height: 26px;
+            width: auto;
+        }
+
+        .brand span {
+            font-family: 'Cinzel', serif;
+            letter-spacing: .3em;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--s);
+            transition: color .3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--g);
+        }
+
+        .nav-cta {
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid var(--g);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            transition: all .35s;
+        }
+
+        .nav-cta:hover {
+            background: var(--g);
+            color: #080807;
+            box-shadow: 0 0 20px var(--g-glow);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-container {
+            padding: 130px 6vw 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--s);
+        }
+
+        .breadcrumb a {
+            color: var(--s);
+            transition: color .3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--g);
+        }
+
+        .breadcrumb .sep {
+            color: var(--g);
+            opacity: 0.6;
+        }
+
+        /* Hero */
+        .hero-section {
+            padding: 40px 6vw 80px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .ey {
+            font-size: 11px;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--g);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ey::before {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: var(--g);
+        }
+
+        .hero-section h1 {
+            font-size: clamp(38px, 5vw, 76px);
+            line-height: 1.08;
+            margin-bottom: 24px;
+        }
+
+        .hero-section p {
+            color: var(--s);
+            font-size: 16px;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .hero-img-showcase {
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 16 / 11;
+            border: 1px solid var(--l);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-img-showcase img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Section */
+        .section {
+            padding: 100px 6vw;
+            border-top: 1px solid var(--l);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(30px, 4vw, 52px);
+            line-height: 1.15;
+            margin: 14px 0 18px;
+        }
+
+        .section-header p {
+            color: var(--s);
+            font-size: 15px;
+        }
+
+        /* Disciplines Grid */
+        .disciplines-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .discipline-card {
+            background: var(--card-bg);
+            border: 1px solid var(--l);
+            border-radius: 18px;
+            padding: 38px 30px;
+            transition: all .35s;
+        }
+
+        .discipline-card:hover {
+            border-color: rgba(197, 160, 89, 0.45);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+        }
+
+        .discipline-num {
+            font-family: 'Cinzel', serif;
+            color: var(--g);
+            font-size: 16px;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .discipline-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .discipline-card p {
+            color: var(--s);
+            font-size: 13.5px;
+            line-height: 1.75;
+        }
+
+        /* Detailed Service Blocks */
+        .service-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 90px;
+        }
+
+        .service-block:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-block:nth-child(even) .service-block-content {
+            direction: ltr;
+        }
+
+        .service-block-img {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16 / 11;
+            border: 1px solid var(--l);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+        }
+
+        .service-block-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-block-content h2 {
+            font-size: clamp(28px, 3.2vw, 42px);
+            margin: 12px 0 18px;
+        }
+
+        .service-block-content p {
+            color: var(--s);
+            font-size: 14.5px;
+            line-height: 1.85;
+            margin-bottom: 16px;
+        }
+
+        /* Core Values & Vision/Mission */
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .vm-card {
+            background: var(--surface);
+            border: 1px solid var(--l);
+            border-radius: 20px;
+            padding: 48px 40px;
+            position: relative;
+        }
+
+        .vm-card h3 {
+            font-size: 26px;
+            margin: 10px 0 16px;
+            color: var(--w);
+        }
+
+        .vm-card p {
+            color: var(--s);
+            font-size: 14.5px;
+            line-height: 1.8;
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16 / 11;
+            border: 1px solid var(--l);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+            display: block;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 20px;
+            background: linear-gradient(transparent, rgba(8, 8, 7, 0.88));
+            font-size: 11px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--w);
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--l);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .faq-item.active {
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+
+        .faq-question {
+            padding: 22px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: var(--w);
+            user-select: none;
+        }
+
+        .faq-icon {
+            color: var(--g);
+            font-size: 18px;
+            transition: transform .3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .4s ease;
+            padding: 0 26px;
+            color: var(--s);
+            font-size: 13.5px;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 250px;
+            padding: 0 26px 22px;
+        }
+
+        /* Consultation CTA */
+        .cta-section {
+            background: radial-gradient(circle at 80% 20%, #302719, transparent 45%), #080807;
+            padding: 110px 6vw;
+            border-top: 1px solid var(--l);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(32px, 4.5vw, 56px);
+            margin: 14px 0 20px;
+        }
+
+        .cta-box p {
+            color: var(--s);
+            font-size: 15px;
+            margin-bottom: 34px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--g);
+            color: #080807;
+            padding: 16px 36px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 11px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px var(--g-glow);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 45px var(--g-glow);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 48px 6vw;
+            border-top: 1px solid var(--l);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--s);
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer a:hover {
+            color: var(--g);
+        }
+
+        @media (max-width: 960px) {
+            .hero-section,
+            .service-block,
+            .service-block:nth-child(even),
+            .disciplines-grid,
+            .vision-mission-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                direction: ltr !important;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a class="brand" href="index.html" aria-label="INOVO Developers Home">
+            <img src="./images/logo/logo.svg" alt="INOVO Logo">
+            <span>INOVO</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="residential-architecture.html">Residential</a>
+            <a href="interior-designers-in-calicut.html" class="active">Interior Design</a>
+            <a href="commercial-hospitality.html">Commercial</a>
+            <a href="index.html#films">Films</a>
+            <a href="index.html#stories">Stories</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="index.html#contact">Start a Project</a>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <span style="color: var(--g);">Interior Designers in Calicut</span>
+        </div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="hero-section">
+        <div>
+            <div class="ey">About INOVO Developers</div>
+            <h1>Building Better Spaces Through Design & Expertise.</h1>
+            <p>INOVO Developers is a leading architectural, interior design, landscape design, and visualization company in Calicut, Kerala. We bring together creativity, technical expertise, and careful planning to create spaces that are functional, elegant, and built around our clients’ needs.</p>
+            <p>Our approach is rooted in quality. Every project is developed through detailed study, research, technical knowledge, and creative design thinking. From the first concept to the final visualization, we focus on delivering solutions that meet high industry standards while reflecting the unique vision of every client.</p>
+        </div>
+        <div class="hero-img-showcase">
+            <img src="./images/ZAHRA/07.webp" alt="Interior Designers in Calicut - INOVO Developers Luxury Living" loading="lazy">
+        </div>
+    </header>
+
+    <!-- Integrated Design & Development Services -->
+    <section class="section">
+        <div class="section-header">
+            <div class="ey" style="justify-content: center;">Integrated Services</div>
+            <h2>Integrated Design & Development Services.</h2>
+            <p>At INOVO Developers, we provide integrated services for residential, commercial, and other built environments. By bringing multiple design disciplines together, we create a seamless experience where architecture, interiors, landscapes, and visual elements work together as one complete concept.</p>
+        </div>
+
+        <div class="disciplines-grid">
+            <div class="discipline-card">
+                <span class="discipline-num">01</span>
+                <h3>Architectural Design</h3>
+                <p>Practical, sustainable, and visually distinctive architectural designs developed through creative spatial planning and structural precision.</p>
+            </div>
+
+            <div class="discipline-card">
+                <span class="discipline-num">02</span>
+                <h3>Interior Design</h3>
+                <p>Balancing aesthetics, comfort, functionality, and personality with bespoke kitchen interior calicut, living room interior design, and material curation.</p>
+            </div>
+
+            <div class="discipline-card">
+                <span class="discipline-num">03</span>
+                <h3>Landscape Design</h3>
+                <p>Transforming outdoor gardens, verandas, and pathways to seamlessly connect indoor living with natural surroundings.</p>
+            </div>
+
+            <div class="discipline-card">
+                <span class="discipline-num">04</span>
+                <h3>3D Visualization</h3>
+                <p>Photorealistic CGI and immersive spatial walkthroughs that help clients preview materials, textures, and lighting before execution.</p>
+            </div>
+
+            <div class="discipline-card">
+                <span class="discipline-num">05</span>
+                <h3>Lighting & Furniture Design</h3>
+                <p>Concealed low-glare architectural lighting fixtures and bespoke joinery crafted to elevate everyday comfort and elegance.</p>
+            </div>
+
+            <div class="discipline-card">
+                <span class="discipline-num">06</span>
+                <h3>Construction Solutions</h3>
+                <p>Turnkey project management and on-site execution ensuring the highest benchmarks of material quality and craft.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specific Focus Areas (Best Architects, Interior Designers, Landscape, 3D) -->
+    <section class="section" style="background: #0b0b0a;">
+        <div class="section-header">
+            <div class="ey" style="justify-content: center;">Our Disciplines</div>
+            <h2>Design Excellence Across Calicut & Kerala.</h2>
+        </div>
+
+        <!-- Block 1: Interior Designers in Calicut -->
+        <div class="service-block">
+            <div class="service-block-img">
+                <img src="./images/ZAHRA/05.webp" alt="Home interior designers in calicut living room design" loading="lazy">
+            </div>
+            <div class="service-block-content">
+                <div class="ey">Interior Architecture</div>
+                <h2>Interior Designers in Calicut</h2>
+                <p>As best interior designers in Calicut, we create interiors that balance aesthetics, comfort, functionality, and personality. From space planning and material selection to lighting, furniture, and finishing details, our interior design solutions are tailored to each client's lifestyle and requirements.</p>
+                <p>Whether crafting a bespoke <strong>kitchen interior calicut</strong> or a contemporary <strong>living room interior design</strong>, our handcrafted detailing ensures timeless elegance.</p>
+            </div>
+        </div>
+
+        <!-- Block 2: Best Architects in Calicut -->
+        <div class="service-block">
+            <div class="service-block-img">
+                <img src="./images/VELORA/DSC00276 copy.webp" alt="Best architects in calicut - INOVO Developers" loading="lazy">
+            </div>
+            <div class="service-block-content">
+                <div class="ey">Architectural Practice</div>
+                <h2>Best Architects in Calicut</h2>
+                <p>Our team of best architects in Calicut combines architectural creativity with technical expertise to develop designs that are practical, sustainable, and visually distinctive. Whether it is a modern home, luxury residence, commercial building, or large-scale project, we approach every design with attention to detail.</p>
+            </div>
+        </div>
+
+        <!-- Block 3: Developers & Landscape Designers in Calicut -->
+        <div class="service-block">
+            <div class="service-block-img">
+                <img src="./images/courtyard.webp" alt="Best landscape designers in calicut" loading="lazy">
+            </div>
+            <div class="service-block-content">
+                <div class="ey">Outdoor & Development</div>
+                <h2>Developers & Landscape Designers in Calicut</h2>
+                <p>As one of the developers in Calicut, INOVO Developers focuses on creating thoughtfully planned spaces with a strong emphasis on quality, functionality, and contemporary design. Our experienced team works closely with clients to understand their requirements and transform ideas into well-executed spaces.</p>
+                <p>Our best landscape designers in Calicut transform outdoor spaces into beautiful and functional environments. We carefully plan gardens, outdoor areas, pathways, greenery, and landscape elements to complement the architecture.</p>
+            </div>
+        </div>
+
+        <!-- Block 4: 3D Visualizers in Calicut -->
+        <div class="service-block">
+            <div class="service-block-img">
+                <img src="./images/AURELIA/ai (4).webp" alt="Best 3D visualizers in calicut" loading="lazy">
+            </div>
+            <div class="service-block-content">
+                <div class="ey">Visualization & CGI</div>
+                <h2>Best 3D Visualizers in Calicut</h2>
+                <p>With a team of best 3D visualizers in Calicut, we turn architectural and interior concepts into realistic visual experiences. Our 3D visualization services help clients understand the design, materials, lighting, colours, textures, and overall look of a project before execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZAHRA & Living Gallery Showcase -->
+    <section class="section">
+        <div class="section-header">
+            <div class="ey" style="justify-content: center;">Craft & Materiality</div>
+            <h2>Curated Living & Kitchen Interior Portfolio.</h2>
+            <p>A glimpse into our bespoke joinery, fluted wall treatments, and ambient living room design.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="./images/ZAHRA/01 copy.webp" alt="Foyer & Arrival Interior Design Calicut" loading="lazy">
+                <div class="gallery-caption">Foyer & Arrival</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/ZAHRA/07.webp" alt="Grand Salon & Dining Interior Design" loading="lazy">
+                <div class="gallery-caption">Grand Salon & Dining</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/ZAHRA/03.webp" alt="Material Fluting & Bronze Details" loading="lazy">
+                <div class="gallery-caption">Material & Fluted Detail</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/ZAHRA/04.webp" alt="Dining Lighting & Bespoke Joinery" loading="lazy">
+                <div class="gallery-caption">Dining Ambience</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/ZAHRA/06.webp" alt="Master Suite Sanctuary Interior" loading="lazy">
+                <div class="gallery-caption">Master Suite Sanctuary</div>
+            </div>
+            <div class="gallery-item">
+                <img src="./images/ZAHRA/10.webp" alt="Evening Low-Glare Ambient Lighting" loading="lazy">
+                <div class="gallery-caption">Evening Mood & Lighting</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="section" style="background: #0d0d0c;">
+        <div class="section-header">
+            <div class="ey" style="justify-content: center;">Designed Around Our Clients</div>
+            <h2>Purpose-Driven Architecture & Interior Design.</h2>
+            <p>Every project we undertake begins with understanding our client's vision, requirements, and expectations. We believe that successful design is not simply about creating beautiful spaces—it is about creating spaces that work, last, and provide lasting value.</p>
+        </div>
+
+        <div class="vision-mission-grid">
+            <div class="vm-card">
+                <div class="ey">Our Vision</div>
+                <h3>To Create Exceptional Spaces.</h3>
+                <p>To create exceptional spaces through innovative design, technical excellence, and a commitment to quality that endures across generations.</p>
+            </div>
+
+            <div class="vm-card">
+                <div class="ey">Our Mission</div>
+                <h3>Integrated Design Excellence.</h3>
+                <p>To deliver integrated architectural, interior, landscape, and visualization solutions that exceed client expectations and set new standards for design excellence in Calicut and across Kerala.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="section">
+        <div class="section-header">
+            <div class="ey" style="justify-content: center;">FAQs</div>
+            <h2>Frequently Asked Questions.</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item active">
+                <div class="faq-question">
+                    <span>Why choose INOVO as your interior designers in Calicut?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    INOVO provides seamless integration between architectural design, custom interior joinery, luxury kitchen interiors, and bespoke lighting, ensuring your home is both visually stunning and effortlessly functional.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is included in your kitchen interior design services in Calicut?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Our kitchen interior services include spatial workflow planning, custom modular cabinetry, high-end stone countertops, built-in appliance integration, ergonomic storage, and premium hardware.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do you handle living room interior design?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    We tailor living room designs around your family's lifestyle—focusing on proportion, acoustic comfort, bespoke wall paneling, fluted timber accents, and layered architectural lighting.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="cta-section">
+        <div class="cta-box">
+            <div class="ey" style="justify-content: center;">INOVO Developers</div>
+            <h2>Designing Spaces. Creating Experiences.</h2>
+            <p>Let's collaborate to transform your home or commercial space into an extraordinary interior environment.</p>
+            <a href="mailto:info@inovodevelopers.com?subject=Interior%20Design%20Inquiry%20Calicut" class="cta-btn">
+                <span>Contact Our Designers in Calicut →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div>© 2026 INOVO Developers. Best Interior Designers & Architects in Calicut, Kerala.</div>
+        <div style="display: flex; gap: 24px;">
+            <a href="index.html">Home</a>
+            <a href="residential-architecture.html">Residential</a>
+            <a href="interior-designers-in-calicut.html">Interior Design</a>
+            <a href="commercial-hospitality.html">Commercial</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+            const bar = document.getElementById('progressBar');
+            if (bar) bar.style.width = pct + '%';
+        }, { passive: true });
+
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

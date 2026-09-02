@@ -4,7 +4,49 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>INOVO — Architecture & Spatial Experience</title>
+    <title>Best architects in calicut | INOVO Developers</title>
+    <meta name="description"
+        content="Best architects in Calicut offering luxury home design, modern architecture, and commercial spaces by INOVO Developers.">
+    <meta name="keywords"
+        content="best architects in calicut, best architects in kerala, architecture firms in calicut, architects in calicut, commercial architects in calicut, top residential architects">
+    <link rel="canonical" href="https://inovodevelopers.com/">
+
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Best architects in calicut | INOVO Developers">
+    <meta property="og:description"
+        content="Best architects in Calicut offering luxury home design, modern architecture, and commercial spaces by INOVO Developers.">
+    <meta property="og:image" content="./images/VELORA/DSC00276 copy.webp">
+    <meta property="og:url" content="https://inovodevelopers.com/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Best architects in calicut | INOVO Developers">
+    <meta name="twitter:description"
+        content="Best architects in Calicut offering luxury home design, modern architecture, and commercial spaces by INOVO Developers.">
+    <meta name="twitter:image" content="./images/VELORA/DSC00276 copy.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ArchitecturePractice",
+      "name": "INOVO Developers",
+      "url": "https://inovodevelopers.com",
+      "logo": "https://inovodevelopers.com/images/logo/logo.svg",
+      "image": "https://inovodevelopers.com/images/VELORA/DSC00276 copy.webp",
+      "description": "Best architects in Calicut offering luxury home design, modern architecture, and commercial spaces by INOVO Developers.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Calicut",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      },
+      "areaServed": ["Calicut", "Kozhikode", "Wayanad", "Malappuram", "Cochin", "Kerala"],
+      "priceRange": "$$$$"
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -694,31 +736,77 @@
         }
 
         .services {
-            background: #11110f
+            background: #11110f;
         }
 
         .service {
             display: grid;
-            grid-template-columns: 60px 1fr 1fr;
-            gap: 30px;
-            padding: 38px 0;
-            border-top: 1px solid var(--l)
+            grid-template-columns: 70px 1.2fr 1.8fr auto;
+            gap: 32px;
+            align-items: center;
+            padding: 42px 0;
+            border-top: 1px solid var(--l);
+            transition: all .35s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .service:hover {
+            border-color: rgba(197, 160, 89, 0.45);
+            background: rgba(255, 255, 255, 0.015);
+            padding-left: 12px;
+            padding-right: 12px;
         }
 
         .service:last-child {
-            border-bottom: 1px solid var(--l)
+            border-bottom: 1px solid var(--l);
+        }
+
+        .service .ey {
+            font-size: 13px;
+            color: var(--g);
+            margin: 0;
         }
 
         .service h3 {
-            font-size: 34px;
-            margin: 0
+            font-size: clamp(28px, 3.2vw, 40px);
+            margin: 0;
+            transition: color .3s;
         }
 
-        .service p {
+        .service:hover h3 {
+            color: var(--g);
+        }
+
+        .service-desc {
             margin: 0;
             color: var(--m);
-            line-height: 1.7;
-            font-size: 13px
+            line-height: 1.75;
+            font-size: 13.5px;
+            max-width: 540px;
+        }
+
+        .service-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--g);
+            padding: 10px 22px;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            border-radius: 30px;
+            white-space: nowrap;
+            transition: all .35s ease;
+            background: rgba(18, 18, 16, 0.6);
+        }
+
+        .service:hover .service-action {
+            background: var(--g);
+            color: #080807;
+            box-shadow: 0 0 20px var(--g-glow);
+            transform: translateX(4px);
         }
 
         .portfolio-head {
@@ -1556,11 +1644,14 @@
             }
 
             .service {
-                grid-template-columns: 40px 1fr
+                grid-template-columns: 1fr;
+                gap: 14px;
+                padding: 30px 0;
             }
 
-            .service p {
-                grid-column: 2
+            .service-action {
+                width: fit-content;
+                margin-top: 6px;
             }
 
             .team {
@@ -1791,9 +1882,7 @@
     <div class="cursor-dot" id="cursorDot"></div>
     <nav class="nav" id="nav"><a class="brand" href="#home" aria-label="INOVO Home"><img src="./images/logo/logo.svg"
                 alt="INOVO Logo" class="brand-logo"><span>INOVO</span></a>
-        <div class="links"><a href="#about">About</a><a href="#services">Services</a><a
-                href="#portfolio">Portfolio</a><a href="#films">Films</a><a href="#team">Team</a><a href="#stories">Stories</a><a
-                href="#contact">Contact</a></div><a class="cta magnetic" href="#contact">Start a Project</a><button
+        <div class="links"><a href="interior-designers-in-calicut.html">About</a><a href="residential-architecture.html">Residential</a><a href="interior-designers-in-calicut.html">Interiors</a><a href="commercial-hospitality.html">Commercial</a><a href="#portfolio">Portfolio</a><a href="#films">Films</a><a href="#team">Team</a><a href="#stories">Stories</a><a href="#contact">Contact</a></div><a class="cta magnetic" href="#contact">Start a Project</a><button
             class="menu magnetic">MENU</button>
     </nav>
     <section class="hero" id="home">
@@ -1841,29 +1930,50 @@
                 <div class="year pre-reveal"><strong>Next</strong><span>A continued exploration of new spaces, markets
                         and design ideas.</span></div>
             </div>
+            <div style="margin-top: 30px;">
+                <a href="interior-designers-in-calicut.html" class="hero-cta" style="display:inline-flex;"><span>Explore Full Studio Profile →</span></a>
+            </div>
         </div>
     </section>
     <section class="section services reveal" id="services">
         <div class="ey">What we do</div>
         <h2 class="title split">From first line<br>to final light.</h2>
-        <div class="service pre-reveal"><span class="ey">01</span>
+        <a href="residential-architecture.html" class="service pre-reveal">
+            <span class="ey">01</span>
             <h3>Architecture</h3>
-            <p>Conceptual thinking, spatial planning and architectural design for distinctive homes and built
-                environments.</p>
-        </div>
-        <div class="service pre-reveal"><span class="ey">02</span>
+            <p class="service-desc">Conceptual thinking, spatial planning and architectural design for distinctive homes, luxury villas, and built environments.</p>
+            <div class="service-action">
+                <span>Explore Discipline</span>
+                <span>→</span>
+            </div>
+        </a>
+        <a href="interior-designers-in-calicut.html" class="service pre-reveal">
+            <span class="ey">02</span>
             <h3>Interior Design</h3>
-            <p>Interior environments shaped through proportion, materiality, furniture, light and atmosphere.</p>
-        </div>
-        <div class="service pre-reveal"><span class="ey">03</span>
+            <p class="service-desc">Refined interior environments shaped through proportion, materiality, custom joinery, light, and atmosphere in Calicut & Kerala.</p>
+            <div class="service-action">
+                <span>Explore Discipline</span>
+                <span>→</span>
+            </div>
+        </a>
+        <a href="interior-designers-in-calicut.html" class="service pre-reveal">
+            <span class="ey">03</span>
             <h3>3D Visualisation</h3>
-            <p>Immersive visual storytelling that helps clients understand and experience a project before it is built.
-            </p>
-        </div>
-        <div class="service pre-reveal"><span class="ey">04</span>
-            <h3>Landscape Design</h3>
-            <p>Indoor and outdoor environments considered as one continuous spatial experience.</p>
-        </div>
+            <p class="service-desc">Photorealistic CGI and immersive spatial storytelling that helps clients understand and experience a project before execution.</p>
+            <div class="service-action">
+                <span>View Visualization</span>
+                <span>→</span>
+            </div>
+        </a>
+        <a href="commercial-hospitality.html" class="service pre-reveal">
+            <span class="ey">04</span>
+            <h3>Commercial & Hospitality</h3>
+            <p class="service-desc">Boutique resorts, multi-tier estates, and destination commercial environments designed for memorable guest journeys.</p>
+            <div class="service-action">
+                <span>Explore Discipline</span>
+                <span>→</span>
+            </div>
+        </a>
     </section>
     <section class="section reveal" id="portfolio">
         <div class="portfolio-head">
